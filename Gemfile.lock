@@ -1,5 +1,4 @@
 GEM
-
   remote: https://rubygems.org/
   specs:
     activemodel (4.2.5)
@@ -36,15 +35,11 @@ GEM
     tilt (2.0.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-=======
-  specs:
-
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-
   activerecord
   activesupport
   bcrypt
@@ -52,8 +47,6 @@ DEPENDENCIES
   pg
   sinatra
   sinatra-activerecord
-=======
-
 
 BUNDLED WITH
    1.10.6
