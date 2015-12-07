@@ -22,5 +22,9 @@ def self.authenticate(user_name, password)
   end
 end
 
+#LINKING TO OTHER TABLES
+has_many :settings
+# has_many :trackers, through: :settings
+
 
 end

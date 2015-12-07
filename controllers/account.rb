@@ -1,9 +1,9 @@
 class AccountController < ApplicationController
 
 get '/' do
-  erb :welcome
+  erb :index
 end
 
-
+#Add in welcome/login, not authorized, etc.
 
 end

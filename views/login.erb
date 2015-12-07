@@ -1,0 +1,21 @@
+
+    <p>
+      <h1>Log-in</h1>
+    </p>
+    <p>Please enter your log-in details:</p>
+    <p>
+
+<!-- <% if @message %> -->
+<!-- <li><%= @message %></li> -->
+<!-- <% end %> -->
+
+<form action="/account/login" method="post">
+
+  <p><input type="text" name="user_name" placeholder="Username"></p>
+  <p><input type="password" name="password" placeholder="Password"></p>
+  <input type="submit" value="Submit">
+
+</form>
+
+
+    </p>
