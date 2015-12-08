@@ -8,13 +8,39 @@
 
 <p> Current formatted marathon date variable: <%= @current_formatted_marathon_date %>
 
-<p>Your selected Marathon: <%= @current_formatted_marathon_date.strftime("%m/%d") %>
+<p>Your selected Marathon: <%= @current_formatted_marathon_date.strftime("%m/%d/%y") %>
+  <p> Today is <%= @current_date.strftime("%m/%d/%y") %>
 
-<p>Training Start Date: <%= @trainingStart.strftime("%m/%d")  %>
+<p>Training Start Date: <%= @trainingStart.strftime("%m/%d/%y")  %>
+
+
+<p> Training starts in <%= @trainingStart.strftime("%m/%d/%y")%> - <%= @current_date.strftime("%m/%d/%y") %>
+
+
+<p> how far away<%@days_until = @trainingStart - @current_date %>
+  <%= @days_until_formatted = @days_until.to_i %>
+
+  <%
+  def give_training_week_number
+    if 0 >= @days_until_formatted > -7
+      return @training_week_number = 1
+
+        for i in 2..18
+      elsif
+        -7(i-1) >= @days_until_formatted > -7(i)
+        return @training_week_number = i
+      end
+    end
+      end
+  %>
+<% give_training_week_number %>
+<%= @training_week_number %>
 
 <p>Training Start Week: Week Number <%= @week_one %>
 
-<p>Your training starts in <%= @weeks_away %> weeks
+
+
+  <p>Your training starts in <%= @weeks_away %> weeks
 
 <p>Training Start Day: <%= @trainingStart.strftime("%A")  %>
 
