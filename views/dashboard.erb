@@ -6,7 +6,9 @@
   <p><input type="hidden" name="week" value="SOMEHOW FILLED IN WITH WEEK"></p>
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
-<p><% chicagoMarathon = DateTime.new(2016,10,9)%>
+<% current_date = Time.now %>
+Current week = <%= current_date.strftime("%W") %>
+<% chicagoMarathon = DateTime.new(2016,10,9)%>
 <p>Chicago Marathon: <%= chicagoMarathon.strftime("%m/%d") %>
   <p><% trainingStart = chicagoMarathon - 125%>
 
