@@ -1,21 +1,14 @@
 
-    <p>
-      <h1>Log-in</h1>
-    </p>
-    <p>Please enter your log-in details:</p>
-    <p>
-
+<h1>Log-in</h1>
+<p>Please enter your log-in details:</p>
 <% if @message %>
 <li><%= @message %></li>
 <% end %>
+<form action="/login" method="post" class="userForm" id="login">
+  <input type="text" name="user_name" placeholder="Username">
+  <input type="password" name="password" placeholder="Password">
 
-<form action="/login" method="post">
+  <button type="button" name="hideLogin" id="register_btn">Sign up</button>
 
-  <p><input type="text" name="user_name" placeholder="Username"></p>
-  <p><input type="password" name="password" placeholder="Password"></p>
   <input type="submit" value="Submit">
-
 </form>
-
-
-    </p>

@@ -4,18 +4,13 @@
     <% if @taken %>
     <p><li><%= @taken %></li></p>
     <% end %>
-    <p>
 
-<form action="/register" method="post">
+<form action="/register" method="post" class="userForm">
   <input type="text" name="user_name" placeholder="Username">
-  <p><input type="email" name="user_email" placeholder="E-mail address"></p>
-  <p><input type="password" name="password" placeholder="Password"></p>
-  <!-- <p><input type="text" name="password" placeholder="Re-enter password"></p> -->
-    <!-- <p><input type="hidden" name="join_date" value="CURRENT_DATE"></p> -->
-<!-- Does CURRENT_DATE need to be in quotes??? -->
-<input type="submit" value="Submit">
+  <input type="email" name="user_email" placeholder="E-mail address">
+  <input type="password" name="password" placeholder="Password">
+
+  <button type="button" name="hideRegister" id="login_btn">Already have an account?</button>
+
+  <input type="submit" value="Submit">
 </form>
-
-
-    </p>
-  <p>Already registered? Log-in <a href=/login>here</a>.</p>

@@ -1,3 +1,82 @@
-
+html, body {
+  background-color: rgba(140, 137, 121, 0.7);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden; }
+  html header, body header {
+    margin: 0;
+    width: 100%;
+    height: 25%;
+    border-bottom: 5px solid #f60a20;
+    box-sizing: inherit; }
+    html header #header_logo, body header #header_logo {
+      width: 35%;
+      height: 75%;
+      border: 3px blue solid;
+      border-top: 0;
+      margin: 0 auto; }
+  html #container_dynamic, body #container_dynamic {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 65%;
+    background: rgba(94, 174, 214, 0.82);
+    text-align: center;
+    overflow: auto; }
+    html #container_dynamic h1, body #container_dynamic h1 {
+      margin: 0;
+      padding: 25px 10%;
+      border-radius: 0 0 5% 5%;
+      background-color: #f60a20;
+      width: auto;
+      display: inline-flex; }
+    html #container_dynamic #index_register_section, body #container_dynamic #index_register_section {
+      display: none; }
+    html #container_dynamic .userForm, body #container_dynamic .userForm {
+      background-color: purple;
+      display: block;
+      width: 50%;
+      height: 50%;
+      margin: 0 auto;
+      padding-top: 2%; }
+      html #container_dynamic .userForm input, body #container_dynamic .userForm input {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid red;
+        border-radius: 5%;
+        margin-bottom: 2%;
+        font-size: 3vh;
+        outline: none;
+        text-align: left;
+        padding-left: 2%; }
+        html #container_dynamic .userForm input:last-child, body #container_dynamic .userForm input:last-child {
+          padding: 2%;
+          margin-top: 10px;
+          border: 2px solid red;
+          width: auto; }
+        html #container_dynamic .userForm input[contenteditable="true"]:focus, html #container_dynamic .userForm input[contenteditable="true"]:active, body #container_dynamic .userForm input[contenteditable="true"]:focus, body #container_dynamic .userForm input[contenteditable="true"]:active {
+          outline: none; }
+  html footer, body footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background-color: red;
+    text-align: center; }
+    html footer span, body footer span {
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      bottom: 0;
+      left: 40%;
+      right: 40%;
+      font-size: 2vh; }
 
 /*# sourceMappingURL=main.css.map */
