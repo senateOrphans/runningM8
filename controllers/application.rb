@@ -30,10 +30,16 @@ class ApplicationController < Sinatra::Base
   # AUTHORIZATION CHECK - FOR ALL PROTECTED PAGES
   def authorization_check
     if session[:current_user] == nil
-      redirect '/account/not_authorized'
+      redirect '/'
     else
       return true
     end
+  end
+
+  # PROVIDE USER ID
+  def provide_user_id
+    user_id = session[:current_user]
+return @user_id = user_id.id
   end
 
 end
