@@ -1,0 +1,62 @@
+
+
+<form action="/tracker/dashboard" method="post">
+  <input type="hidden" name="settings_id" value="settings_id">
+<!-- NEED TO CREATE @VARIABLE for settings_id -->
+  <p><input type="hidden" name="week" value="SOMEHOW FILLED IN WITH WEEK"></p>
+  <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
+<!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
+
+
+<!-- <table style="width:100%"> -->
+<table>
+  <tr>
+    <td>Monday</td>
+    <td>Tuesday</td>
+    <td>Wednesday</td>
+    <td>Thursday</td>
+    <td>Friday</td>
+    <td>Saturday</td>
+    <td>Sunday</td>
+  </tr>
+  <tr>
+    <td><input type="number" name="distance_mon"></td>
+    <td><input type="number" name="distance_tues"></td>
+    <td><input type="number" name="distance_wed"></td>
+    <td><input type="number" name="distance_thurs"></td>
+    <td><input type="number" name="distance_fri"></td>
+    <td><input type="number" name="distance_sat"></td>
+    <td><input type="number" name="distance_sun"></td>
+  </tr>
+
+</table>
+
+<input type="submit" value="Submit">
+</form>
+<hr>
+<h2>Testing Below</h2>
+<p><% chicagoMarathon = DateTime.new(2016,10,9)%>
+<p>Chicago Marathon: <%= chicagoMarathon.strftime("%m/%d") %>
+  <p><% trainingStart = chicagoMarathon - 125%>
+<p>Training Start Date: <%= trainingStart.strftime("%m/%d")  %>
+  <p>Training Start Week: Week Number <%= trainingStart.strftime("%W")  %>
+      <p>Training Start Day: <%= trainingStart.strftime("%A")  %>
+<p> All marathons should be on Saturday or Sunday....
+
+<p>Novice Week One Schedule:
+  <%= @novice[1][0] %>
+  <%= @novice[1][1] %>
+<hr>
+<p>moreeee testing
+  <% provide_user_id %>
+  <%= @user_id %>
+
+
+<!--
+<% time = Time.new%>
+<p><%= time %>
+<p><%=time.month%>/<%=time.day%>
+<p><% setDate = DateTime.new(2001,2,3)%>
+<p><%= setDate.strftime("%m/%d")  %>
+  <p><% ninetyAgo = DateTime.new(2001,2,3) - 90%>
+    <p><%= ninetyAgo.strftime("%m/%d")  %> -->
