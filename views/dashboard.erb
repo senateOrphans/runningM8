@@ -3,27 +3,29 @@
 <form action="/tracker/dashboard" method="post">
   <input type="hidden" name="settings_id" value="settings_id">
 <!-- NEED TO CREATE @VARIABLE for settings_id -->
-  <p><input type="hidden" name="week" value="SOMEHOW FILLED IN WITH WEEK"></p>
+  <p><input type="hidden" name="week"></p>
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
-<% current_date = Time.now %>
-Current week = <%= current_date.strftime("%W") %>
-<% chicagoMarathon = DateTime.new(2016,10,9)%>
-<p>Chicago Marathon: <%= chicagoMarathon.strftime("%m/%d") %>
-  <p><% trainingStart = chicagoMarathon - 125%>
+<% @current_date = Time.now %>
+<% @current_week = @current_date.strftime("%W") %>
+
+Current week = <%= @current_week %>
+<% @chicagoMarathon = DateTime.new(2016,10,9)%>
+<p>Chicago Marathon: <%= @chicagoMarathon.strftime("%m/%d") %>
+  <p><% @trainingStart = @chicagoMarathon - 125%>
 
 <!-- <table style="width:100%"> -->
 <table>
 
 
   <tr>
-    <td>Monday, <%= trainingStart.strftime("%m/%d")  %></td>
-    <td>Tuesday, <%= (trainingStart + 1).strftime("%m/%d")  %></td>
-    <td>Wednesday, <%= (trainingStart + 2).strftime("%m/%d")  %></td>
-    <td>Thursday, <%= (trainingStart + 3).strftime("%m/%d")  %></td>
-    <td>Friday, <%= (trainingStart + 4).strftime("%m/%d")  %></td>
-    <td>Saturday, <%= (trainingStart + 5).strftime("%m/%d")  %></td>
-    <td>Sunday, <%= (trainingStart + 6).strftime("%m/%d")  %></td>
+    <td>Monday, <%= @trainingStart.strftime("%m/%d")  %></td>
+    <td>Tuesday, <%= (@trainingStart + 1).strftime("%m/%d")  %></td>
+    <td>Wednesday, <%= (@trainingStart + 2).strftime("%m/%d")  %></td>
+    <td>Thursday, <%= (@trainingStart + 3).strftime("%m/%d")  %></td>
+    <td>Friday, <%= (@trainingStart + 4).strftime("%m/%d")  %></td>
+    <td>Saturday, <%= (@trainingStart + 5).strftime("%m/%d")  %></td>
+    <td>Sunday, <%= (@trainingStart + 6).strftime("%m/%d")  %></td>
   </tr>
   <tr>
     <td><input type="number" name="distance_mon"></td>
@@ -50,14 +52,51 @@ Current week = <%= current_date.strftime("%W") %>
 <hr>
 <h2>Testing Below</h2>
 
-<p>Training Start Date: <%= trainingStart.strftime("%m/%d")  %>
-  <p>Training Start Week: Week Number <%= trainingStart.strftime("%W")  %>
-      <p>Training Start Day: <%= trainingStart.strftime("%A")  %>
+<p>Training Start Date: <%= @trainingStart.strftime("%m/%d")  %>
+<% @week_one = @trainingStart.strftime("%W")  %>
+  <p>Training Start Week: Week Number <%= @week_one %>
+
+
+
+
+
+    <% how_many_weeks_away %>
+    <p>Your training starts in <%= @weeks_away %> weeks
+      <p>Training Start Day: <%= @trainingStart.strftime("%A")  %>
 <p> All marathons should be on Saturday or Sunday....
 
 <p>Novice Week One Schedule:
   <%= @novice[1][0] %>
   <%= @novice[1][1] %>
+  <hr>
+  <p>testing
+    <p>Current marathon <%= @current_marathon_name %>
+      <p> Current marathon date  <%= @current_marathon_date %>
+<p>Current user  <%= @user_id %>
+
+<%  def hyphen_replace(date)
+   @fixed_date = date.gsub('-',',')
+return @new_array = @fixed_date.split(',')
+
+  #  @fixed_date.split(',') do |inc|
+  #    inc
+  # split each piece into an array
+  # declare an array
+  # String.split do |word|
+  # push into an array
+  # end
+end %>
+<% hyphen_replace(@current_marathon_date) %>
+<p> Fixed date: <%= @new_array %>
+  <P> fixed year <%= @new_array[0] %>
+    <P> fixed month <%= @new_array[1] %>
+      <P> fixed day <%= @new_array[2] %>
+
+<% @test_marathon_date = DateTime.new(@new_array[0].to_i, @new_array[1].to_i, @new_array[2].to_i)%>
+<% @test_marathon_date = DateTime.new(2016,02,12)%>
+<p> FIXED: <%= @test_marathon_date %>
+
+
 <!-- <hr>
 <p>moreeee testing
   <% provide_user_id %>
