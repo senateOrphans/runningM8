@@ -1,20 +1,38 @@
+<p>Current week variable: <%= @current_week %>
 
+<p>Current marathon variable: <%= @current_marathon_name %>
 
+<p> Current unformatted marathon date variable: <%= @current_unformatted_marathon_date %>
+
+<p>Current user variable: <%= @user_id %>
+
+<p> Current formatted marathon date variable: <%= @current_formatted_marathon_date %>
+
+<p>Your selected Marathon: <%= @current_formatted_marathon_date.strftime("%m/%d") %>
+
+<p>Training Start Date: <%= @trainingStart.strftime("%m/%d")  %>
+
+<p>Training Start Week: Week Number <%= @week_one %>
+
+<p>Your training starts in <%= @weeks_away %> weeks
+
+<p>Training Start Day: <%= @trainingStart.strftime("%A")  %>
+
+<p> All marathons should be on Saturday or Sunday....
+
+<hr>
+    <p>Novice Week One Schedule:
+      <%= @novice[1][0] %>
+      <%= @novice[1][1] %>
+      <hr>
+
+<!-- <table style="width:100%"> -->
 <form action="/tracker/dashboard" method="post">
   <input type="hidden" name="settings_id" value="settings_id">
 <!-- NEED TO CREATE @VARIABLE for settings_id -->
   <p><input type="hidden" name="week"></p>
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
-<% @current_date = Time.now %>
-<% @current_week = @current_date.strftime("%W") %>
-
-Current week = <%= @current_week %>
-<% @chicagoMarathon = DateTime.new(2016,10,9)%>
-<p>Chicago Marathon: <%= @chicagoMarathon.strftime("%m/%d") %>
-  <p><% @trainingStart = @chicagoMarathon - 125%>
-
-<!-- <table style="width:100%"> -->
 <table>
 
 
@@ -49,65 +67,3 @@ Current week = <%= @current_week %>
 
 <input type="submit" value="Submit">
 </form>
-<hr>
-<h2>Testing Below</h2>
-
-<p>Training Start Date: <%= @trainingStart.strftime("%m/%d")  %>
-<% @week_one = @trainingStart.strftime("%W")  %>
-  <p>Training Start Week: Week Number <%= @week_one %>
-
-
-
-
-
-    <% how_many_weeks_away %>
-    <p>Your training starts in <%= @weeks_away %> weeks
-      <p>Training Start Day: <%= @trainingStart.strftime("%A")  %>
-<p> All marathons should be on Saturday or Sunday....
-
-<p>Novice Week One Schedule:
-  <%= @novice[1][0] %>
-  <%= @novice[1][1] %>
-  <hr>
-  <p>testing
-    <p>Current marathon <%= @current_marathon_name %>
-      <p> Current marathon date  <%= @current_marathon_date %>
-<p>Current user  <%= @user_id %>
-
-<%  def hyphen_replace(date)
-   @fixed_date = date.gsub('-',',')
-return @new_array = @fixed_date.split(',')
-
-  #  @fixed_date.split(',') do |inc|
-  #    inc
-  # split each piece into an array
-  # declare an array
-  # String.split do |word|
-  # push into an array
-  # end
-end %>
-<% hyphen_replace(@current_marathon_date) %>
-<p> Fixed date: <%= @new_array %>
-  <P> fixed year <%= @new_array[0] %>
-    <P> fixed month <%= @new_array[1] %>
-      <P> fixed day <%= @new_array[2] %>
-
-<% @test_marathon_date = DateTime.new(@new_array[0].to_i, @new_array[1].to_i, @new_array[2].to_i)%>
-<% @test_marathon_date = DateTime.new(2016,02,12)%>
-<p> FIXED: <%= @test_marathon_date %>
-
-
-<!-- <hr>
-<p>moreeee testing
-  <% provide_user_id %>
-  <%= @user_id %> -->
-
-
-<!--
-<% time = Time.new%>
-<p><%= time %>
-<p><%=time.month%>/<%=time.day%>
-<p><% setDate = DateTime.new(2001,2,3)%>
-<p><%= setDate.strftime("%m/%d")  %>
-  <p><% ninetyAgo = DateTime.new(2001,2,3) - 90%>
-    <p><%= ninetyAgo.strftime("%m/%d")  %> -->
