@@ -9,4 +9,4 @@ gem 'bcrypt'
 
 gem 'font-awesome-sass'
 # gem 'american_date'
->>>>>>> efbf29d34b03cf2a7e90fee7d0fce752840d9420
+#>>>>>>> efbf29d34b03cf2a7e90fee7d0fce752840d9420
