@@ -6,18 +6,22 @@
   <p><input type="hidden" name="week" value="SOMEHOW FILLED IN WITH WEEK"></p>
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
-
+<p><% chicagoMarathon = DateTime.new(2016,10,9)%>
+<p>Chicago Marathon: <%= chicagoMarathon.strftime("%m/%d") %>
+  <p><% trainingStart = chicagoMarathon - 125%>
 
 <!-- <table style="width:100%"> -->
 <table>
+
+
   <tr>
-    <td>Monday</td>
-    <td>Tuesday</td>
-    <td>Wednesday</td>
-    <td>Thursday</td>
-    <td>Friday</td>
-    <td>Saturday</td>
-    <td>Sunday</td>
+    <td>Monday, <%= trainingStart.strftime("%m/%d")  %></td>
+    <td>Tuesday, <%= (trainingStart + 1).strftime("%m/%d")  %></td>
+    <td>Wednesday, <%= (trainingStart + 2).strftime("%m/%d")  %></td>
+    <td>Thursday, <%= (trainingStart + 3).strftime("%m/%d")  %></td>
+    <td>Friday, <%= (trainingStart + 4).strftime("%m/%d")  %></td>
+    <td>Saturday, <%= (trainingStart + 5).strftime("%m/%d")  %></td>
+    <td>Sunday, <%= (trainingStart + 6).strftime("%m/%d")  %></td>
   </tr>
   <tr>
     <td><input type="number" name="distance_mon"></td>
@@ -28,16 +32,22 @@
     <td><input type="number" name="distance_sat"></td>
     <td><input type="number" name="distance_sun"></td>
   </tr>
-
+<tr>
+  <td><%= @novice[1][0] %></td>
+  <td><%= @novice[1][1] %></td>
+  <td><%= @novice[1][2] %></td>
+  <td><%= @novice[1][3] %></td>
+  <td><%= @novice[1][4] %></td>
+  <td><%= @novice[1][5] %></td>
+  <td><%= @novice[1][6] %></td>
+</tr>
 </table>
 
 <input type="submit" value="Submit">
 </form>
 <hr>
 <h2>Testing Below</h2>
-<p><% chicagoMarathon = DateTime.new(2016,10,9)%>
-<p>Chicago Marathon: <%= chicagoMarathon.strftime("%m/%d") %>
-  <p><% trainingStart = chicagoMarathon - 125%>
+
 <p>Training Start Date: <%= trainingStart.strftime("%m/%d")  %>
   <p>Training Start Week: Week Number <%= trainingStart.strftime("%W")  %>
       <p>Training Start Day: <%= trainingStart.strftime("%A")  %>
@@ -46,10 +56,10 @@
 <p>Novice Week One Schedule:
   <%= @novice[1][0] %>
   <%= @novice[1][1] %>
-<hr>
+<!-- <hr>
 <p>moreeee testing
   <% provide_user_id %>
-  <%= @user_id %>
+  <%= @user_id %> -->
 
 
 <!--
