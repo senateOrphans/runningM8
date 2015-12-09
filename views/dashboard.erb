@@ -1,41 +1,16 @@
-<p>Current week variable: <%= @current_week %>
+<h1>Data if they haven't started yet</h1>
+<p>Welcome, <%= @user_name %>.
 
-<p>Current marathon variable: <%= @current_marathon_name %>
+<p>We are so excited that you have decided to use Running M8 to prep for the <%= @current_marathon_name %> on <%= @current_formatted_marathon_date.strftime("%m/%d/%y") %>.
 
-<p> Current unformatted marathon date variable: <%= @current_unformatted_marathon_date %>
-
-<p>Current user variable: <%= @user_id %>
-
-<p> Current formatted marathon date variable: <%= @current_formatted_marathon_date %>
-
-<p>Your selected Marathon: <%= @current_formatted_marathon_date.strftime("%m/%d/%y") %>
-  <p> Today is <%= @current_date.strftime("%m/%d/%y") %>
-
-<p>Training Start Date: <%= @trainingStart.strftime("%m/%d/%y")  %>
+<p>Today is <%= @current_date.strftime("%m/%d/%y") %> and your training start date is <%= @trainingStart.strftime("%m/%d/%y")  %>, which means that your training starts in <%= @days_until_formatted%> days (<%= @weeks_away %> weeks)! 
 
 
-<p> Training starts in <%= @trainingStart.strftime("%m/%d/%y")%> - <%= @current_date.strftime("%m/%d/%y") %>
+<p><h1>Data if they have started</h1>
+<p>Welcome back, <%= @user_name %>!
 
+<p>You are on <b>week number <%= @training_week_number %></b> of your training!
 
-<p>TRAINING WEEK NUMBER <%= @training_week_number %>
-
-
-
-<p>Training Start Week: Week Number <%= @week_one %>
-
-
-
-  <p>Your training starts in <%= @weeks_away %> weeks
-
-<p>Training Start Day: <%= @trainingStart.strftime("%A")  %>
-
-<p> All marathons should be on Saturday or Sunday....
-
-<hr>
-    <p>Novice Week One Schedule:
-      <%= @novice[1][0] %>
-      <%= @novice[1][1] %>
-      <hr>
 
 <!-- <table style="width:100%"> -->
 <form action="/tracker/dashboard" method="post">
@@ -44,7 +19,7 @@
   <p>
 
 <p><input type ="hidden" name="week" value=<%="\"#{@training_week_number}\""%>></p>
-  
+
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
 <h2>Today is <%= @current_date.strftime("%m/%d/%y") %></h1>

@@ -5,6 +5,8 @@ require 'date'
   get '/dashboard' do
 
     provide_user_id
+    provide_user_name
+    @user_name
     @user_id
 @current_marathon_name = Setting.find_by(account_id: @user_id).marathon_name
 @current_unformatted_marathon_date = Setting.find_by(account_id: @user_id).marathon_date

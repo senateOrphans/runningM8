@@ -42,4 +42,9 @@ class ApplicationController < Sinatra::Base
 return @user_id = user_id.id
   end
 
+  def provide_user_name
+    user_name = session[:current_user]
+return @user_name = user_name.user_name
+  end
+
 end
