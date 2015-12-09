@@ -1,5 +1,5 @@
-    <h1>Register</h1>
-    <p>New to Running M8? Register here:</p>
+    <h1 class="tglr">Register</h1>
+    <p>Get started below.</p>
 
     <% if @taken %>
     <p><li><%= @taken %></li></p>
@@ -10,7 +10,7 @@
   <input type="email" name="user_email" placeholder="E-mail address">
   <input type="password" name="password" placeholder="Password">
 
-  <button type="button" name="hideRegister" id="login_btn">Already have an account?</button>
+  <button type="button" name="hideRegister" id="login_btn" class="accntBtns">Already have an account?</button>
 
   <input type="submit" value="Submit">
 </form>

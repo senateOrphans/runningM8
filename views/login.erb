@@ -1,5 +1,5 @@
 
-<h1>Log-in</h1>
+<h1 class="tglr">Log-in</h1>
 <p>Please enter your log-in details:</p>
 <% if @message %>
 <li><%= @message %></li>
@@ -8,7 +8,8 @@
   <input type="text" name="user_name" placeholder="Username">
   <input type="password" name="password" placeholder="Password">
 
-  <button type="button" name="hideLogin" id="register_btn">Sign up</button>
+  <button type="button" name="hideLogin" id="register_btn" class="accntBtns">Sign up</button>
+  <button type="button" name="recoveryBtn" class="accntBtns">Recover Account</button>
 
   <input type="submit" value="Submit">
 </form>
