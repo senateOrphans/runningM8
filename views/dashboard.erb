@@ -11,11 +11,7 @@
 
 <p>You are on <b>week number <%= @training_week_number %></b> of your training!
 
-<p>So far, you have run RB total_distance RB miles!
-
-  <p> <%= @select_tracker.to_json %>
-<hr>
-<p> <%= @tracker_json = JSON.parse(@select_tracker.to_json) %>
+  <p>You have run <%= @total_distance_run %> miles already!
 
 
 <!-- <table style="width:100%"> -->
