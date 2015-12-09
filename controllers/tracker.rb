@@ -2,6 +2,7 @@ class TrackerController < ApplicationController
 
 require 'date'
 
+# This method creates the hash for the novice training plan.
 def create_novice
 @novice = Hash.new
 @novice[1] = ['Rest', '3 miles', '3 miles', '3 miles', 'Rest', '6 miles', 'Cross']
@@ -24,12 +25,14 @@ def create_novice
 @novice[18] = ['Rest', '3 miles', '4 miles', '2 miles', 'Rest', '26 miles', 'Cross']
 end
 
+# This method formats dates, so that they can be used with Date functions (adding and subtracting dates).
 def format_date(date)
    @fixed_date = date.gsub('-',',')
  @new_array = @fixed_date.split(',')
 @current_formatted_marathon_date = DateTime.new(@new_array[0].to_i, @new_array[1].to_i, @new_array[2].to_i)
 end
 
+# This is a getter method for marathon info, so pages within the Tracker can obtain settings. If they have not created settings, it will redirect them to the set up page.
 def provide_marathon_info
   if @current_marathon_name = Setting.find_by(account_id: @user_id) == nil
     redirect '/setting/set_up'
@@ -40,11 +43,13 @@ def provide_marathon_info
 end
 end
 
+# This method tells the page what day it is.
 def set_date
   @current_date = Date.today
   @current_week = @current_date.strftime("%W")
 end
 
+# This method provides the first day that the user's training program should begin.
 def set_training_start
   @trainingStart = @current_formatted_marathon_date - 125
   @week_one = @trainingStart.strftime("%W")
@@ -61,11 +66,13 @@ else
 end
 end
 
+# This method will provide how many days until training starts, based off the current date.
 def set_days_until
   @days_until = @trainingStart - @current_date
   @days_until_formatted = @days_until.to_i
 end
 
+# This method provides the week number of training. This is incredibly important and triggers much of what is displayed on the dashboard.
 def give_training_week_number(argument)
   @inc = 1
   @training_week_number
@@ -83,6 +90,7 @@ elsif (-7 < argument && argument < 0) || argument == 0
     @training_week_number_history = @training_week_number - @weeks_ago
     end
 
+# This method says how far the user has run in TOTAL, across all weeks/all logged data.
     def tracker_total_distance
     provide_user_id
     @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
@@ -100,11 +108,14 @@ elsif (-7 < argument && argument < 0) || argument == 0
 
     end
 
+# This method is similar to an authorization check. It sees if the user has started training yet. If not, it directs them away from the dashboard and to a countdown page.
     def has_training_started
       if @days_until_formatted.to_i > 0
         redirect '/tracker/countdown'
       end
       end
+
+# ALL GET ROUTES  ARE BELOW
 
       get '/countdown' do
         erb :countdown
@@ -136,7 +147,7 @@ elsif (-7 < argument && argument < 0) || argument == 0
     provide_user_id
     @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
 
-# This checks if the week has already been submitted. If so, it will update it, rather than create a duplicate record.
+# This checks if the week has already been submitted. If so, it will update it, rather than create a duplicate record. This code also makes sure that if the user doesn't enter a value, it does not overwrite that line.
     @select_tracker = Tracker.find_by(settings_id: @current_marathon_settings_id, week: params[:week])
     if @select_tracker
       @tracker = @select_tracker
