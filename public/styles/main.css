@@ -1,3 +1,136 @@
-
+html, body {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white; }
+  html header, body header {
+    margin: 0;
+    width: 100%;
+    height: 10%;
+    background-color: rgba(140, 137, 121, 0.5);
+    font-size: 8vh;
+    text-align: left;
+    border-bottom: 5px #8C8979 solid;
+    box-sizing: inherit;
+    -webkit-box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75); }
+    html header #header_title, body header #header_title {
+      display: block;
+      width: 100%;
+      top: -.5%;
+      z-index: 0;
+      position: absolute; }
+    html header #header_logo, body header #header_logo {
+      width: 35%;
+      height: 100%;
+      border: 3px rgba(140, 137, 121, 0.2) solid;
+      border-top: 0;
+      border-bottom: 0;
+      margin: 0 auto;
+      border-radius: 10%;
+      overflow: hidden;
+      opacity: 0; }
+      html header #header_logo #canv, body header #header_logo #canv {
+        border-radius: 10%; }
+  html #container_dynamic, body #container_dynamic {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 90%;
+    background: rgba(242, 242, 242, 0.9);
+    text-align: center;
+    overflow: auto; }
+    html #container_dynamic p, body #container_dynamic p {
+      margin-top: 4%;
+      color: gray;
+      font-size: 2vh; }
+    html #container_dynamic h1, body #container_dynamic h1 {
+      margin: 0;
+      padding: 2% 10%;
+      border-radius: 0 0 10% 10%;
+      background-color: #8C8979;
+      width: auto;
+      font-size: 5vh;
+      display: inline-flex;
+      -webkit-box-shadow: 0px 3px 84px -26px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 3px 84px -26px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 3px 84px -26px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1%; }
+    html #container_dynamic #index_register_section, body #container_dynamic #index_register_section {
+      display: none; }
+    html #container_dynamic .userForm, body #container_dynamic .userForm {
+      display: block;
+      width: 50%;
+      height: 50%;
+      margin: 0 auto;
+      padding-top: 1%; }
+      html #container_dynamic .userForm input, body #container_dynamic .userForm input {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+        background: transparent;
+        border: none;
+        color: rgba(224, 56, 56, 0.9);
+        border-bottom: 1px solid #8C8979;
+        border-radius: 1.5%;
+        margin-bottom: 5%;
+        font-size: 3vh;
+        outline: none;
+        text-align: left;
+        padding-left: 2%; }
+        html #container_dynamic .userForm input:last-child, body #container_dynamic .userForm input:last-child {
+          transition: all .5s;
+          margin-top: 5%;
+          padding-right: 2%;
+          padding: 3% 10%;
+          border-top: 2px solid #8C8979;
+          border-bottom: 1px solid rgba(224, 56, 56, 0.6);
+          width: auto;
+          border-radius: 50px;
+          color: #8C8979;
+          background: rgba(246, 41, 12, 0);
+          background: -moz-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
+          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246, 41, 12, 0)), color-stop(50%, rgba(255, 255, 255, 0.19)), color-stop(100%, rgba(255, 38, 0, 0.38)));
+          background: -webkit-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
+          background: -o-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
+          background: -ms-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
+          background: linear-gradient(to bottom, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6290c', endColorstr='#ff2600', GradientType=0 ); }
+        html #container_dynamic .userForm input:hover:last-child, body #container_dynamic .userForm input:hover:last-child {
+          background-color: rgba(224, 8, 8, 0.8);
+          color: #F2F2F2; }
+        html #container_dynamic .userForm input[contenteditable="true"]:focus, html #container_dynamic .userForm input[contenteditable="true"]:active, body #container_dynamic .userForm input[contenteditable="true"]:focus, body #container_dynamic .userForm input[contenteditable="true"]:active {
+          outline: none; }
+      html #container_dynamic .userForm .accntBtns, body #container_dynamic .userForm .accntBtns {
+        width: auto;
+        padding: 2%;
+        border: none;
+        font-size: 2.5vh;
+        background-color: transparent;
+        outline: none; }
+  html footer, body footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+    border-top: rgba(140, 137, 121, 0.7) solid 1vh;
+    background-color: rgba(140, 137, 121, 0.5);
+    text-align: center;
+    padding-top: 1%; }
+    html footer span, body footer span {
+      padding: 0;
+      margin: 0;
+      bottom: 2%;
+      width: 20%;
+      left: 40%;
+      right: 40%;
+      font-size: 2.25vh;
+      color: #f2f2f2; }
 
 /*# sourceMappingURL=main.css.map */
