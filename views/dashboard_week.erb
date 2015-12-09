@@ -1,3 +1,10 @@
+
+
+<hr>
+<% @select_tracker_for_current_week = Tracker.where(settings_id: @current_marathon_settings_id, week: @training_week_number_history) %>
+<%= @select_tracker_for_current_week_json = JSON.parse(@select_tracker_for_current_week.to_json) %>
+<hr>
+<%= @select_tracker_for_current_week_json[0]["distance_mon"] %>
 <hr>
 <h1>You have run <%= @total_distance_run %> miles already!</h1>
 <hr>
@@ -16,13 +23,17 @@
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
 <h2>You are viewing last week's data!</h2>
 
+
+<% @weeks_ago = 0 %>
+<h2>Weeks ago: <%= @weeks_ago %></h2>
   <p><%= @duplicate_message %>
+    <% give_training_week_number(@days_until_formatted, @weeks_ago) %>
 
 <table>
 
 
   <tr>
-    <td>Monday, <%= (@trainingStart + (@training_week_number_history - 1) * 7).strftime("%m/%d")  %></td>
+    <td><%= (@trainingStart + (@training_week_number_history - 1) * 7).strftime("%A")  %>Monday, <%= (@trainingStart + (@training_week_number_history - 1) * 7).strftime("%m/%d")  %></td>
     <td>Tuesday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 1).strftime("%m/%d")  %></td>
     <td>Wednesday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 2).strftime("%m/%d")  %></td>
     <td>Thursday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 3).strftime("%m/%d")  %></td>
@@ -48,6 +59,15 @@
   <td><%= @novice[@training_week_number_history][5] %></td>
   <td><%= @novice[@training_week_number_history][6] %></td>
 </tr>
+<tr>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></td>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_tues"].to_i%></td>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_wed"].to_i%></td>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_thurs"].to_i%></td>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_fri"].to_i%></td>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_sat"].to_i%></td>
+  <td><%=@select_tracker_for_current_week_json[0]["distance_sun"].to_i%></td>
+  <tr>
 </table>
 
 <input type="submit" value="Submit">

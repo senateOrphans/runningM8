@@ -73,7 +73,8 @@ def set_days_until
 end
 
 # This method provides the week number of training. This is incredibly important and triggers much of what is displayed on the dashboard.
-def give_training_week_number(argument)
+def give_training_week_number(argument, weeks_ago)
+  @weeks_ago = weeks_ago
   @inc = 1
   @training_week_number
 if argument > 0
@@ -86,7 +87,6 @@ elsif (-7 < argument && argument < 0) || argument == 0
        @training_week_number = @inc
     end
     end
-    @weeks_ago = 1
     @training_week_number_history = @training_week_number - @weeks_ago
 end
 
@@ -131,7 +131,7 @@ end
     set_training_start
     how_many_weeks_away
     set_days_until
-    give_training_week_number(@days_until_formatted)
+    give_training_week_number(@days_until_formatted, 1)
     tracker_total_distance
     has_training_started
 
@@ -203,11 +203,26 @@ end
     set_training_start
     how_many_weeks_away
     set_days_until
-    give_training_week_number(@days_until_formatted)
+    give_training_week_number(@days_until_formatted, 1)
     tracker_total_distance
     has_training_started
 
     erb :dashboard_week
   end
+
+# FIGURING OUT SELECT METHOD TO TOGGLE
+# post '/dashboard_week' do
+#   @weeks_ago = params[:weeks_ago_form]
+#   erb :dashboard_week
+# end
+
+# <form action="/tracker/dashboard_week" method="post">
+#     <select name='weeks_ago_selecter' onchange='if(this.value != 0) { this.form.submit(); }'>
+#          <option name="weeks_ago_form" value='0'>1 Week Ago</option>
+#          <option name="weeks_ago_form" value='1'>2 Weeks Ago</option>
+#          <option name="weeks_ago_form" value='2'>3 Weeks Ago</option>
+#          <option name="weeks_ago_form" value='3'>4 Weeks Ago</option>
+#     </select>
+# </form>
 
 end
