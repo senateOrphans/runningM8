@@ -14,6 +14,7 @@ html, body {
     height: 10%;
     background-color: rgba(140, 137, 121, 0.5);
     font-size: 8vh;
+    padding-left: 10%;
     text-align: left;
     border-bottom: 5px #8C8979 solid;
     box-sizing: inherit;
@@ -27,17 +28,11 @@ html, body {
       z-index: 0;
       position: absolute; }
     html header #header_logo, body header #header_logo {
-      width: 35%;
+      width: 100%;
       height: 100%;
-      border: 3px rgba(140, 137, 121, 0.2) solid;
-      border-top: 0;
-      border-bottom: 0;
       margin: 0 auto;
-      border-radius: 10%;
       overflow: hidden;
       opacity: 0; }
-      html header #header_logo #canv, body header #header_logo #canv {
-        border-radius: 10%; }
   html #container_dynamic, body #container_dynamic {
     margin: 0;
     padding: 0;
@@ -49,22 +44,35 @@ html, body {
     html #container_dynamic #spacer, body #container_dynamic #spacer {
       width: 100%;
       height: 10%; }
+    html #container_dynamic .submit_btn, body #container_dynamic .submit_btn {
+      transition: all .5s;
+      display: block;
+      margin: 0 auto;
+      padding-right: 2%;
+      padding: 3% 10%;
+      border: 0;
+      width: auto;
+      background-color: transparent;
+      color: #8c8979;
+      font-size: 8vh;
+      outline: none; }
+      html #container_dynamic .submit_btn:hover, body #container_dynamic .submit_btn:hover {
+        color: #404040; }
+      html #container_dynamic .submit_btn[contenteditable="true"]:focus, html #container_dynamic .submit_btn[contenteditable="true"]:active, body #container_dynamic .submit_btn[contenteditable="true"]:focus, body #container_dynamic .submit_btn[contenteditable="true"]:active {
+        outline: none; }
     html #container_dynamic p, body #container_dynamic p {
-      margin-top: 4%;
+      margin-top: 1%;
       color: gray;
       font-size: 2vh; }
     html #container_dynamic h1, body #container_dynamic h1 {
       margin: 0;
       padding: 2% 10%;
-      border-radius: 0 0 10% 10%;
-      background-color: #8C8979;
       width: auto;
-      font-size: 5vh;
+      font-size: 10vh;
       display: inline-flex;
-      -webkit-box-shadow: 0px 3px 84px -26px rgba(0, 0, 0, 0.5);
-      -moz-box-shadow: 0px 3px 84px -26px rgba(0, 0, 0, 0.5);
-      box-shadow: 0px 3px 84px -26px rgba(0, 0, 0, 0.5);
-      margin-bottom: 1%; }
+      margin-top: 2%;
+      margin-bottom: 1%;
+      color: #404040; }
     html #container_dynamic h2, body #container_dynamic h2 {
       margin: 0;
       border-radius: 0 0 10% 10%;
@@ -95,29 +103,6 @@ html, body {
         outline: none;
         text-align: left;
         padding-left: 2%; }
-        html #container_dynamic .userForm input:last-child, body #container_dynamic .userForm input:last-child {
-          transition: all .5s;
-          margin-top: 5%;
-          padding-right: 2%;
-          padding: 3% 10%;
-          border-top: 2px solid #8C8979;
-          border-bottom: 1px solid rgba(224, 56, 56, 0.6);
-          width: auto;
-          border-radius: 50px;
-          color: #8C8979;
-          background: rgba(246, 41, 12, 0);
-          background: -moz-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
-          background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246, 41, 12, 0)), color-stop(50%, rgba(255, 255, 255, 0.19)), color-stop(100%, rgba(255, 38, 0, 0.38)));
-          background: -webkit-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
-          background: -o-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
-          background: -ms-linear-gradient(top, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
-          background: linear-gradient(to bottom, rgba(246, 41, 12, 0) 0%, rgba(255, 255, 255, 0.19) 50%, rgba(255, 38, 0, 0.38) 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6290c', endColorstr='#ff2600', GradientType=0 ); }
-        html #container_dynamic .userForm input:hover:last-child, body #container_dynamic .userForm input:hover:last-child {
-          background-color: rgba(224, 8, 8, 0.8);
-          color: #F2F2F2; }
-        html #container_dynamic .userForm input[contenteditable="true"]:focus, html #container_dynamic .userForm input[contenteditable="true"]:active, body #container_dynamic .userForm input[contenteditable="true"]:focus, body #container_dynamic .userForm input[contenteditable="true"]:active {
-          outline: none; }
       html #container_dynamic .userForm .accntBtns, body #container_dynamic .userForm .accntBtns {
         width: auto;
         padding: 2%;
@@ -125,8 +110,56 @@ html, body {
         font-size: 2.5vh;
         background-color: transparent;
         outline: none; }
+    html #container_dynamic #login_info, body #container_dynamic #login_info {
+      width: 0%;
+      height: 100%;
+      background-color: #8c8979;
+      position: absolute;
+      color: #f2f2f2;
+      text-align: right;
+      z-index: 2;
+      color: transparent; }
+    html #container_dynamic .runningTimeTbl, body #container_dynamic .runningTimeTbl {
+      background-color: blue;
+      padding: 2.5%;
+      margin: 0 auto; }
+      html #container_dynamic .runningTimeTbl .daysListing, body #container_dynamic .runningTimeTbl .daysListing {
+        margin: 0;
+        background-color: red;
+        list-style: none;
+        width: 95%; }
+        html #container_dynamic .runningTimeTbl .daysListing li, body #container_dynamic .runningTimeTbl .daysListing li {
+          display: inline-block;
+          margin: 0 .5%;
+          width: 12%;
+          background-color: purple;
+          font-size: 2vh; }
+      html #container_dynamic .runningTimeTbl .daysListingInput, body #container_dynamic .runningTimeTbl .daysListingInput {
+        border-top: 5px purple solid;
+        margin: 0;
+        background-color: red;
+        list-style: none;
+        width: 95%;
+        margin-top: 20px; }
+        html #container_dynamic .runningTimeTbl .daysListingInput li, body #container_dynamic .runningTimeTbl .daysListingInput li {
+          display: inline-block;
+          width: 12%;
+          margin: 0 .5%; }
+          html #container_dynamic .runningTimeTbl .daysListingInput li input, body #container_dynamic .runningTimeTbl .daysListingInput li input {
+            width: 50%; }
+      html #container_dynamic .runningTimeTbl .daysListingVals, body #container_dynamic .runningTimeTbl .daysListingVals {
+        border-top: 5px purple solid;
+        margin: 0;
+        background-color: red;
+        list-style: none;
+        width: 95%;
+        margin-top: 20px; }
+        html #container_dynamic .runningTimeTbl .daysListingVals .listingVals, body #container_dynamic .runningTimeTbl .daysListingVals .listingVals {
+          display: inline-block;
+          width: 12%;
+          margin: 0 .5%; }
   html footer, body footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 5%;

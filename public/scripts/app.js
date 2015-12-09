@@ -6,13 +6,13 @@ $(document).ready(function(){
   //index login btns
   //~~~~~~~~~~~~~
   $("#register_btn").click(function(){
-    $("#index_login_section").hide('slow');
-    $("#index_register_section").show('slow');
+    $("#index_login_section").hide();
+    $("#index_register_section").show();
     console.log('hidden')
   });
   $("#login_btn").click(function(){
-    $("#index_register_section").hide('fast');
-    $("#index_login_section").show('fast');
+    $("#index_register_section").hide();
+    $("#index_login_section").show();
     console.log('yay')
   });
   //~~~~~~~~~~~~~
@@ -32,5 +32,6 @@ $(document).ready(function(){
       console.log(tracker);
     }
   });
+
 
 });
