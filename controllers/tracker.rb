@@ -31,8 +31,13 @@ def format_date(date)
 end
 
 def provide_marathon_info
+  if @current_marathon_name = Setting.find_by(account_id: @user_id) == nil
+    redirect '/setting/set_up'
+  else
+
   @current_marathon_name = Setting.find_by(account_id: @user_id).marathon_name
   @current_unformatted_marathon_date = Setting.find_by(account_id: @user_id).marathon_date
+end
 end
 
 def set_date
@@ -45,6 +50,7 @@ def set_training_start
   @week_one = @trainingStart.strftime("%W")
 end
 
+# I think I can delete this function. Double check that not using it anymore.
 def how_many_weeks_away
 if @week_one.to_i - @current_week.to_i < 0
   return @weeks_away = -1 * (@week_one.to_i - @current_week.to_i)
@@ -73,6 +79,8 @@ elsif (-7 < argument && argument < 0) || argument == 0
        @training_week_number = @inc
     end
     end
+    @weeks_ago = 1
+    @training_week_number_history = @training_week_number - @weeks_ago
     end
 
     def tracker_total_distance
