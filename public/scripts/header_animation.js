@@ -20,8 +20,8 @@ $(document).ready(function(){
   //
   var c = document.getElementById('canv'),
     $ = c.getContext('2d'),
-    w = c.width = document.getElementById("header_logo").offsetWidth-5,
-    h = c.height = document.getElementById("header_logo").offsetHeight-3,
+    w = c.width = document.getElementById("header_logo").offsetWidth,
+    h = c.height = document.getElementById("header_logo").offsetHeight,
     t = 0, num = 1550,
     s, a, b,
     x, y, _x, _y,
@@ -51,8 +51,8 @@ $(document).ready(function(){
   anim();
 
   window.addEventListener('resize', function() {
-    c.width = w = document.getElementById("header_logo").offsetWidth-5;
-    c.height = h = document.getElementById("header_logo").offsetHeight-3;
+    c.width = w = document.getElementById("header_logo").offsetWidth;
+    c.height = h = document.getElementById("header_logo").offsetHeight;
   }, false);
 
 })

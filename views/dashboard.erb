@@ -1,17 +1,20 @@
-<h2>Data if they haven't started yet</h2>
-<p>Welcome, <%= @user_name %>.
-
-<p>We are so excited that you have decided to use Running M8 to prep for the <%= @current_marathon_name %> on <%= @current_formatted_marathon_date.strftime("%m/%d/%y") %>.
-
-<p>Today is <%= @current_date.strftime("%m/%d/%y") %> and your training start date is <%= @trainingStart.strftime("%m/%d/%y")  %>, which means that your training starts in <%= @days_until_formatted%> days (<%= @weeks_away %> weeks)!
-
+<div id="login_info">
+  <ul>
+    <li><i class="fa fa-user"></i><%= @user_name %></li>
+    <li><%= @current_marathon_name %></li>
+    <li>Today is ~<%= @current_date.strftime("%m/%d/%y") %>~</li>
+    <li>your training start date is ~<%= @trainingStart.strftime("%m/%d/%y")%>~</li>
+    <li>You are on <b>week number ~<%= @training_week_number %>~</li>
+    <li>You have ran <%= @total_distance_run %></li>
+  </ul>
+</div>
 
 <p><h2>Data if they have started</h2>
 <p>Welcome back, <%= @user_name %>!
 
 <p>You are on <b>week number <%= @training_week_number %></b> of your training!
 
-  <p>You have run <%= @total_distance_run %> miles already!
+  <p>You have ran <%= @total_distance_run %> miles already!
 
 
 <!-- <table style="width:100%"> -->
@@ -20,7 +23,7 @@
 <!-- NEED TO CREATE @VARIABLE for settings_id -->
   <p>
 
-<p><input type ="hidden" name="week" value=<%="\"#{@training_week_number}\""%>></p>
+<input type ="hidden" name="week" value=<%="\"#{@training_week_number}\""%>>
 
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
@@ -28,37 +31,42 @@
 
   <p><%= @duplicate_message %>
 
-<table>
+  <div class="runningTimeTbl">
 
 
-  <tr>
-    <td>Monday, <%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%m/%d")  %></td>
-    <td>Tuesday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%m/%d")  %></td>
-    <td>Wednesday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%m/%d")  %></td>
-    <td>Thursday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%m/%d")  %></td>
-    <td>Friday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%m/%d")  %></td>
-    <td>Saturday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%m/%d")  %></td>
-    <td>Sunday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></td>
-  </tr>
-  <tr>
-    <td><input type="number" name="distance_mon"></td>
-    <td><input type="number" name="distance_tues"></td>
-    <td><input type="number" name="distance_wed"></td>
-    <td><input type="number" name="distance_thurs"></td>
-    <td><input type="number" name="distance_fri"></td>
-    <td><input type="number" name="distance_sat"></td>
-    <td><input type="number" name="distance_sun"></td>
-  </tr>
-<tr>
-  <td><%= @novice[@training_week_number][0] %></td>
-  <td><%= @novice[@training_week_number][1] %></td>
-  <td><%= @novice[@training_week_number][2] %></td>
-  <td><%= @novice[@training_week_number][3] %></td>
-  <td><%= @novice[@training_week_number][4] %></td>
-  <td><%= @novice[@training_week_number][5] %></td>
-  <td><%= @novice[@training_week_number][6] %></td>
-</tr>
-</table>
+    <ul class="daysListing">
+      <li class="daysListText">Monday, <%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%m/%d")  %></li>
+      <li class="daysListText">Tuesday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%m/%d")  %></li>
+      <li class="daysListText">Wednesday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%m/%d")  %></li>
+      <li class="daysListText">Thursday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%m/%d")  %></li>
+      <li class="daysListText">Friday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%m/%d")  %></li>
+      <li class="daysListText">Saturday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%m/%d")  %></li>
+      <li class="daysListText">Sunday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></li>
+    </ul>
+    <ul class="daysListingInput">
+      <li class="distNums"><input type="number" name="distance_mon"></li>
+      <li class="distNums"><input type="number" name="distance_tues"></li>
+      <li class="distNums"><input type="number" name="distance_wed"></li>
+      <li class="distNums"><input type="number" name="distance_thurs"></li>
+      <li class="distNums"><input type="number" name="distance_fri"></li>
+      <li class="distNums"><input type="number" name="distance_sat"></li>
+      <li class="distNums"><input type="number" name="distance_sun"></li>
+    </ul>
+    <ul class="daysListingVals">
+      <!-- saving this for later because it is cool :)
+    <% @novice[@training_week_number].each do |num| %>
+      <input type="text" name="name" value="<%= num %>">
+    <% end %> -->
+      <li class="listingVals"><%= @novice[@training_week_number][0] %></li>
+      <li class="listingVals"><%= @novice[@training_week_number][1] %></li>
+      <li class="listingVals"><%= @novice[@training_week_number][2] %></li>
+      <li class="listingVals"><%= @novice[@training_week_number][3] %></li>
+      <li class="listingVals"><%= @novice[@training_week_number][4] %></li>
+      <li class="listingVals"><%= @novice[@training_week_number][5] %></li>
+      <li class="listingVals"><%= @novice[@training_week_number][6] %></li>
+    </ul>
+    <button type="submit" value="Submit" class="submit_btn"><i class="fa fa-sign-in"></i></button>
 
-<input type="submit" value="Submit">
+  </div>
+
 </form>
