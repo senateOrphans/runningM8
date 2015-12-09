@@ -78,17 +78,18 @@ elsif (-7 < argument && argument < 0) || argument == 0
     def tracker_total_distance
     provide_user_id
     @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
-    @select_tracker = Tracker.where(settings_id: @current_marathon_settings_id)
+    @select_tracker_for_total_distance = Tracker.where(settings_id: @current_marathon_settings_id)
 
-    # Currenttly, calling select_tracker.to_json.... need to figure out how to add everything up
+    @tracker_json = JSON.parse(@select_tracker_for_total_distance.to_json)
 
-    # return @select_tracker
-    # if select_tracker
-    # @total_distance = select_tracker.distance_mon.to_i + select_tracker.distance_tues.to_i + select_tracker.distance_wed.to_i + select_tracker.distance_thurs.to_i + select_tracker.distance_fri.to_i + select_tracker.distance_sat.to_i + select_tracker.distance_sun.to_i
-    # return @total_distance
-    # else
-    #   return @total_distance = 0
-    # end
+      @total_distance_run = 0
+    for inc in 0..17
+      if @tracker_json[inc]
+       @total_distance_run = @total_distance_run.to_i + @tracker_json[inc]["distance_mon"].to_i + @tracker_json[inc]["distance_tues"].to_i + @tracker_json[inc]["distance_wed"].to_i + @tracker_json[inc]["distance_thurs"].to_i + @tracker_json[inc]["distance_fri"].to_i +
+      @tracker_json[inc]["distance_sat"].to_i + @tracker_json[inc]["distance_sun"].to_i
+    end
+    end
+
     end
 
   get '/dashboard' do
@@ -161,7 +162,7 @@ end
     set_days_until
     give_training_week_number(@days_until_formatted)
     tracker_total_distance
-    
+
     erb :dashboard_week
   end
 
