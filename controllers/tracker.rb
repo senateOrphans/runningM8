@@ -92,6 +92,16 @@ elsif (-7 < argument && argument < 0) || argument == 0
 
     end
 
+    def has_training_started
+      if @days_until_formatted.to_i > 0
+        redirect '/tracker/countdown'
+      end
+      end
+
+      get '/countdown' do
+        erb :countdown
+      end
+
   get '/dashboard' do
 
     provide_user_id
@@ -105,6 +115,7 @@ elsif (-7 < argument && argument < 0) || argument == 0
     set_days_until
     give_training_week_number(@days_until_formatted)
     tracker_total_distance
+    has_training_started
 
     erb :dashboard
 
@@ -162,6 +173,7 @@ end
     set_days_until
     give_training_week_number(@days_until_formatted)
     tracker_total_distance
+    has_training_started
 
     erb :dashboard_week
   end
