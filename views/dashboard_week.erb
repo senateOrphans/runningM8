@@ -2,7 +2,7 @@
 
 <hr>
 <% @select_tracker_for_current_week = Tracker.where(settings_id: @current_marathon_settings_id, week: @training_week_number_history) %>
-<%= @select_tracker_for_current_week_json = JSON.parse(@select_tracker_for_current_week.to_json) %>
+<% @select_tracker_for_current_week_json = JSON.parse(@select_tracker_for_current_week.to_json) %>
 <hr>
 <%= @select_tracker_for_current_week_json[0]["distance_mon"] %>
 <hr>

@@ -1,3 +1,4 @@
+
 <div id="login_info">
   <ul>
     <li><i class="fa fa-user"></i><%= @user_name %></li>
@@ -35,13 +36,13 @@
 
 
     <ul class="daysListing">
-      <li class="daysListText">Monday, <%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%m/%d")  %></li>
-      <li class="daysListText">Tuesday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%m/%d")  %></li>
-      <li class="daysListText">Wednesday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%m/%d")  %></li>
-      <li class="daysListText">Thursday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%m/%d")  %></li>
-      <li class="daysListText">Friday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%m/%d")  %></li>
-      <li class="daysListText">Saturday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%m/%d")  %></li>
-      <li class="daysListText">Sunday, <%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%m/%d")  %></li>
+      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></li>
     </ul>
     <ul class="daysListingInput">
       <li class="distNums"><input type="number" name="distance_mon"></li>
@@ -51,6 +52,15 @@
       <li class="distNums"><input type="number" name="distance_fri"></li>
       <li class="distNums"><input type="number" name="distance_sat"></li>
       <li class="distNums"><input type="number" name="distance_sun"></li>
+    </ul>
+    <ul class="YOLO">
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></li>
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_tues"].to_i%></li>
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_wed"].to_i%></li>
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_thurs"].to_i%></li>
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_fri"].to_i%></li>
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_sat"].to_i%></li>
+      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_sun"].to_i%></li>
     </ul>
     <ul class="daysListingVals">
       <!-- saving this for later because it is cool :)

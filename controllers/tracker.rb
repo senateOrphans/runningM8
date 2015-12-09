@@ -114,6 +114,16 @@ def has_training_started
       end
 end
 
+def provide_already_logged_data
+  @select_tracker_for_current_week = Tracker.where(settings_id: @current_marathon_settings_id, week: @training_week_number)
+  if @select_tracker_for_current_week != []
+  @select_tracker_for_current_week_json = JSON.parse(@select_tracker_for_current_week.to_json)
+else
+  @select_tracker_for_current_week_json = [{"distance_mon"=>"", "distance_tues"=>"", "distance_wed"=>"", "distance_thurs"=>"", "distance_fri"=>"", "distance_sat"=>"", "distance_sun"=>""}]
+end
+
+end
+
 # ALL GET ROUTES  ARE BELOW
 
   get '/countdown' do
@@ -134,7 +144,7 @@ end
     give_training_week_number(@days_until_formatted, 1)
     tracker_total_distance
     has_training_started
-
+    provide_already_logged_data
     erb :dashboard
 
   end
@@ -209,6 +219,8 @@ end
 
     erb :dashboard_week
   end
+
+
 
 # FIGURING OUT SELECT METHOD TO TOGGLE
 # post '/dashboard_week' do
