@@ -14,6 +14,9 @@
 <p>So far, you have run RB total_distance RB miles!
 
   <p> <%= @select_tracker.to_json %>
+<hr>
+<p> <%= @tracker_json = JSON.parse(@select_tracker.to_json) %>
+testing testting <p><%= @tracker_json[0][1].to_i + @tracker_json[0][2].to_i%>
 
 <!-- <table style="width:100%"> -->
 <form action="/tracker/dashboard" method="post">
