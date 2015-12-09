@@ -140,13 +140,27 @@ elsif (-7 < argument && argument < 0) || argument == 0
     @select_tracker = Tracker.find_by(settings_id: @current_marathon_settings_id, week: params[:week])
     if @select_tracker
       @tracker = @select_tracker
+if params[:distance_mon] != ""
       @tracker.distance_mon = params[:distance_mon]
+    end
+    if params[:distance_tues] != ""
       @tracker.distance_tues = params[:distance_tues]
+    end
+    if params[:distance_wed] != ""
       @tracker.distance_wed = params[:distance_wed]
+    end
+    if params[:distance_thurs] != ""
       @tracker.distance_thurs = params[:distance_thurs]
+    end
+    if params[:distance_fri] != ""
       @tracker.distance_fri = params[:distance_fri]
+    end
+    if params[:distance_sat] != ""
       @tracker.distance_sat = params[:distance_sat]
+    end
+    if params[:distance_sun] != ""
       @tracker.distance_sun = params[:distance_sun]
+    end
       @tracker.save
       redirect '/tracker/dashboard'
 # If it arrives to the else statement, it means it is a new week and it will create a new line in the table
