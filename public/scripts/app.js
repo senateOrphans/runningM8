@@ -21,12 +21,18 @@ $(document).ready(function(){
     if( 0 == tracker % 2){
       $( "#header_logo" ).fadeTo("slow", 1);
       $( "#header_title" ).fadeTo("slow", 0);
+      // $('header').css(
+      //   'padding-left', 0
+      // );
       console.log(tracker);
       tracker++;
       console.log(tracker);
     }else if (1 == tracker % 2) {
       $( "#header_logo" ).fadeTo("slow", 0);
       $( "#header_title" ).fadeTo("slow", 1);
+      // $('header').css(
+      //   'padding-left', 0+'%'
+      // );
       console.log(tracker);
       tracker++;
       console.log(tracker);
