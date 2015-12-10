@@ -113,6 +113,8 @@ html, body {
         font-size: 2.5vh;
         background-color: transparent;
         outline: none; }
+      html #container_dynamic .userForm #register_btn, body #container_dynamic .userForm #register_btn {
+        color: rgba(140, 137, 121, 0.8); }
     html #container_dynamic #login_info, body #container_dynamic #login_info {
       width: 0%;
       height: 100%;

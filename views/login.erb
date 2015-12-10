@@ -2,7 +2,7 @@
 <h1 class="tglr"><i class="fa fa-users"></i></h1>
 <p>Runner Login</p>
 <% if @message %>
-<li><%= @message %></li>
+<p><%= @message %></p>
 <% end %>
 <form action="/login" method="post" class="userForm" id="login">
   <input type="text" name="user_name" placeholder="Username">

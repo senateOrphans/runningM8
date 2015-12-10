@@ -2,15 +2,18 @@
     <p>Get started below.</p>
 
     <% if @taken %>
-    <p><li><%= @taken %></li></p>
+    <p><%= @taken %></p>
     <% end %>
 
 <form action="/register" method="post" class="userForm">
-  <input type="text" name="user_name" placeholder="Username">
-  <input type="email" name="user_email" placeholder="E-mail address">
-  <input type="password" name="password" placeholder="Password">
+  <input type="text" name="user_name" placeholder="Username" required>
+  <input type="email" name="user_email" placeholder="E-mail address" required>
+  <input type="password" name="password" placeholder="Password" id="password"required>
+  <input type="password" name="password_confirm" placeholder="Password Confirm" id="password_confirm"required>
+  <p id="pwdMessage"></p>
+
 
   <button type="button" name="hideRegister" id="login_btn" class="accntBtns">Already have an account?</button>
 
-  <button type="submit" value="Submit" class="submit_btn"><i class="fa fa-sign-in"></i></button>
+  <button type="submit" value="Submit" id="reg_sbm_btn"class="submit_btn"><i class="fa fa-sign-in"></i></button>
 </form>
