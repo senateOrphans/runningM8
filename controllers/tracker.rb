@@ -138,6 +138,7 @@ def has_training_started
       end
 end
 
+# This method displays what running data the user has already submitted to the database.
 def provide_already_logged_data
   @select_tracker_for_current_week = Tracker.where(settings_id: @current_marathon_settings_id, week: @training_week_number)
   if @select_tracker_for_current_week != []
