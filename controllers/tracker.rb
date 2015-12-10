@@ -160,6 +160,7 @@ end
 # ALL GET ROUTES  ARE BELOW
 
   get '/countdown' do
+    authorization_check
     provide_user_id
     provide_user_name
     create_novice
@@ -174,7 +175,7 @@ end
   end
 
   get '/dashboard' do
-
+    authorization_check
     provide_user_id
     provide_user_name
     create_novice
@@ -249,6 +250,7 @@ end
   end
 
   get '/dashboard_week' do
+    authorization_check
     provide_user_id
     provide_user_name
     create_novice
