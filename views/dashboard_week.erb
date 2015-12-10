@@ -1,74 +1,112 @@
 
 
+<select onChange="window.location.href=this.value">
+  <option value='/tracker/dashboard_week'>Navigator</option>
+  <option value='/tracker/dashboard_week'>Current Week</option>
+    <option value='/tracker/dashboard_week?weeksago=1'>1 Week Ago</option>
+    <option value='/tracker/dashboard_week?weeksago=2'>2 Weeks Ago</option>
+    <option value='/tracker/dashboard_week?weeksago=3'>3 Weeks Ago</option>
+    <option value='/tracker/dashboard_week?weeksago=4'>4 Weeks Ago</option>
+</select>
+
+This many weeks ago: <%= params[:weeksago] %>
+
+<!-- <form action="/tracker/dashboard_week" method="post">
+    <select name='weeks_ago_selecter' onchange='if(this.value != 0) { this.form.submit(); }'>
+         <option name="weeks_ago_form" value='1'>1 Week Ago</option>
+         <option name="weeks_ago_form" value='2'>2 Weeks Ago</option>
+         <option name="weeks_ago_form" value='3'>3 Weeks Ago</option>
+         <option name="weeks_ago_form" value='4'>4 Weeks Ago</option>
+    </select>
+</form> -->
+
 <hr>
-<% @select_tracker_for_current_week = Tracker.where(settings_id: @current_marathon_settings_id, week: @training_week_number_history) %>
-<% @select_tracker_for_current_week_json = JSON.parse(@select_tracker_for_current_week.to_json) %>
-<hr>
-<%= @select_tracker_for_current_week_json[0]["distance_mon"] %>
-<hr>
-<h1>You have run <%= @total_distance_run %> miles already!</h1>
-<hr>
-<p>Want to <a href=/logout>log-out?</a>
+<% @how_many_weeks_back = params[:weeksago].to_i %>
+Working? <%= @how_many_weeks_back %>
+<div id="login_info">
+  <ul>
+    <li><i class="fa fa-user"></i><%= @user_name %></li>
+    <li><%= @current_marathon_name %></li>
+    <li>Today is ~<%= @current_date.strftime("%m/%d/%y") %>~</li>
+    <li>your training start date is ~<%= @trainingStart.strftime("%m/%d/%y")%>~</li>
+    <li>You are on <b>week number ~<%= @training_week_number - @how_many_weeks_back %>~</li>
+    <li>You have ran <%= @total_distance_run %></li>
+  </ul>
+</div>
+
+<!-- <p><h2>Data if they have started</h2>
+<p>Welcome back, <%= @user_name %>!</p>
+
+<p>You are on <b>week number <%= @training_week_number - @how_many_weeks_back %></b> of your training!
+
+  <p>You have ran <%= @total_distance_run %> miles already!</p> -->
 
 
 <!-- <table style="width:100%"> -->
-<form action="/tracker/dashboard" method="post">
+<form action="/tracker/dashboard_week" method="post">
   <input type="hidden" name="settings_id" value="settings_id">
 <!-- NEED TO CREATE @VARIABLE for settings_id -->
-  <p>
-
-<p><input type ="hidden" name="week" value=<%="\"#{@training_week_number_history}\""%>></p>
+  <input type ="hidden" name="week" value=<%="\"#{@training_week_number - @how_many_weeks_back}\""%>>
 
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
-<h2>You are viewing last week's data!</h2>
+  <!-- <h2>Today is <%= @current_date.strftime("%m/%d/%y") %></h2> -->
+
+  <table class="runningTimeTbl">
 
 
-<% @weeks_ago = 0 %>
-<h2>Weeks ago: <%= @weeks_ago %></h2>
-  <p><%= @duplicate_message %>
-    <% give_training_week_number(@days_until_formatted, @weeks_ago) %>
+    <tr class="daysListing">
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7 + 1).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7 + 2).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7 + 3).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7 + 4).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7 + 5).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - @how_many_weeks_back - 1) * 7 + 6).strftime("%m/%d")  %></td>
+    </tr>
+    <tr class="daysListingInput">
+      <td class="distNums"><input type="number" name="distance_mon" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_tues" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_wed" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_thurs" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_fri" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_sat" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_sun" min="0" max="150"></li>
+        <input type="hidden" name="weeksago" value=<%="\"#{@how_many_weeks_back}\""%>>
+    </tr>
+    <tr class="userInputVals">
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_tues"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_wed"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_thurs"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_fri"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_sat"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_sun"].to_i%></li>
+    </tr>
+    <tr class="daysListingVals">
+      <!-- saving this for later because it is cool :)
+    <% @novice[@training_week_number - @how_many_weeks_back].each do |num| %>
+      <input type="text" name="name" value="<%= num %>">
+    <% end %> -->
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][0] %></li>
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][1] %></li>
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][2] %></li>
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][3] %></li>
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][4] %></li>
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][5] %></li>
+      <td class="listingVals"><%= @set_skill_level[@training_week_number - @how_many_weeks_back][6] %></li>
+    </tr>
+    <tr id="submit_row">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td id="tbl_submit_btn">
+        <button type="submit" value="Submit" class="submit_btn"><i class="fa fa-sign-in"></i></button>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
 
-<table>
-
-
-  <tr>
-    <td><%= (@trainingStart + (@training_week_number_history - 1) * 7).strftime("%A")  %>Monday, <%= (@trainingStart + (@training_week_number_history - 1) * 7).strftime("%m/%d")  %></td>
-    <td>Tuesday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 1).strftime("%m/%d")  %></td>
-    <td>Wednesday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 2).strftime("%m/%d")  %></td>
-    <td>Thursday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 3).strftime("%m/%d")  %></td>
-    <td>Friday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 4).strftime("%m/%d")  %></td>
-    <td>Saturday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 5).strftime("%m/%d")  %></td>
-    <td>Sunday, <%= (@trainingStart + (@training_week_number_history - 1) * 7 + 6).strftime("%m/%d")  %></td>
-  </tr>
-  <tr>
-    <td><input type="number" name="distance_mon"></td>
-    <td><input type="number" name="distance_tues"></td>
-    <td><input type="number" name="distance_wed"></td>
-    <td><input type="number" name="distance_thurs"></td>
-    <td><input type="number" name="distance_fri"></td>
-    <td><input type="number" name="distance_sat"></td>
-    <td><input type="number" name="distance_sun"></td>
-  </tr>
-<tr>
-  <td><%= @novice[@training_week_number_history][0] %></td>
-  <td><%= @novice[@training_week_number_history][1] %></td>
-  <td><%= @novice[@training_week_number_history][2] %></td>
-  <td><%= @novice[@training_week_number_history][3] %></td>
-  <td><%= @novice[@training_week_number_history][4] %></td>
-  <td><%= @novice[@training_week_number_history][5] %></td>
-  <td><%= @novice[@training_week_number_history][6] %></td>
-</tr>
-<tr>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></td>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_tues"].to_i%></td>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_wed"].to_i%></td>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_thurs"].to_i%></td>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_fri"].to_i%></td>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_sat"].to_i%></td>
-  <td><%=@select_tracker_for_current_week_json[0]["distance_sun"].to_i%></td>
-  <tr>
-</table>
-
-<input type="submit" value="Submit">
+  </table>
 </form>

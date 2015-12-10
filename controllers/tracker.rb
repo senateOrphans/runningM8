@@ -148,6 +148,17 @@ else
 end
 end
 
+# This method displays what running data the user has already submitted to the database.
+def provide_already_logged_data_history
+  @select_tracker_for_current_week = Tracker.where(settings_id: @current_marathon_settings_id, week: @training_week_number - params[:weeksago].to_i)
+  if @select_tracker_for_current_week != []
+  @select_tracker_for_current_week_json = JSON.parse(@select_tracker_for_current_week.to_json)
+else
+  @select_tracker_for_current_week_json = [{"distance_mon"=>"", "distance_tues"=>"", "distance_wed"=>"", "distance_thurs"=>"", "distance_fri"=>"", "distance_sat"=>"", "distance_sun"=>""}]
+end
+end
+
+
 def determine_skill_level
 if @current_skill_level == 'novice'
   @set_skill_level = @novice
@@ -264,11 +275,64 @@ end
     give_training_week_number(@days_until_formatted, 1)
     tracker_total_distance
     has_training_started
+    # provide_already_logged_data
+    provide_already_logged_data_history
+    determine_skill_level
 
     erb :dashboard_week
   end
 
+# Below is a copy and paste of the dashboard post, that is not DRY, but fine for now.
+post '/dashboard_week' do
+  provide_user_id
+  @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
 
+# This checks if the week has already been submitted. If so, it will update it, rather than create a duplicate record. This code also makes sure that if the user doesn't enter a value, it does not overwrite that line.
+  @select_tracker = Tracker.find_by(settings_id: @current_marathon_settings_id, week: params[:week])
+  if @select_tracker
+    @tracker = @select_tracker
+if params[:distance_mon] != ""
+    @tracker.distance_mon = params[:distance_mon]
+  end
+  if params[:distance_tues] != ""
+    @tracker.distance_tues = params[:distance_tues]
+  end
+  if params[:distance_wed] != ""
+    @tracker.distance_wed = params[:distance_wed]
+  end
+  if params[:distance_thurs] != ""
+    @tracker.distance_thurs = params[:distance_thurs]
+  end
+  if params[:distance_fri] != ""
+    @tracker.distance_fri = params[:distance_fri]
+  end
+  if params[:distance_sat] != ""
+    @tracker.distance_sat = params[:distance_sat]
+  end
+  if params[:distance_sun] != ""
+    @tracker.distance_sun = params[:distance_sun]
+  end
+    @tracker.save
+    redirect to("/dashboard_week?weeksago=#{params[:weeksago]}")
+# If it arrives to the else statement, it means it is a new week and it will create a new line in the table
+else
+      @tracker = Tracker.new
+  @tracker.settings_id = @current_marathon_settings_id
+  @tracker.week = params[:week]
+  @tracker.distance_mon = params[:distance_mon]
+  @tracker.distance_tues = params[:distance_tues]
+  @tracker.distance_wed = params[:distance_wed]
+  @tracker.distance_thurs = params[:distance_thurs]
+  @tracker.distance_fri = params[:distance_fri]
+  @tracker.distance_sat = params[:distance_sat]
+  @tracker.distance_sun = params[:distance_sun]
+  @tracker.save
+
+
+
+  redirect to("/dashboard_week?weeksago=#{params[:weeksago]}")
+end
+end
 
 # FIGURING OUT SELECT METHOD TO TOGGLE
 # post '/dashboard_week' do
