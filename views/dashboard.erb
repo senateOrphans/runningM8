@@ -1,13 +1,16 @@
-
-<div id="login_info">
-  <ul>
-    <li><i class="fa fa-user"></i><%= @user_name %></li>
-    <li><%= @current_marathon_name %></li>
-    <li>Today is ~<%= @current_date.strftime("%m/%d/%y") %>~</li>
-    <li>your training start date is ~<%= @trainingStart.strftime("%m/%d/%y")%>~</li>
-    <li>You are on <b>week number ~<%= @training_week_number %>~</li>
-    <li>You have ran <%= @total_distance_run %></li>
-  </ul>
+<div id="expand_container"><i class="fa fa-info"></i></div>
+<div id="login_info_container">
+  <span id="close_container">X</span>
+  <div id="login_info">
+    <ul>
+      <li><i class="fa fa-user"></i><%= @user_name %></li>
+      <li><%= @current_marathon_name %></li>
+      <li><%= @current_date.strftime("%m/%d/%y") %></li>
+      <li><%= @trainingStart.strftime("%m/%d/%y")%></li>
+      <li><%= @training_week_number %></li>
+      <li><%= @total_distance_run %></li>
+    </ul>
+  </div>
 </div>
 
 <!-- <p><h2>Data if they have started</h2>

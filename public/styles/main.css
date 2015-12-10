@@ -16,7 +16,7 @@ html, body {
     font-size: 8vh;
     text-align: left;
     border-bottom: 5px #8C8979 solid;
-    box-sizing: inherit;
+    box-sizing: border-box;
     -webkit-box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75); }
@@ -115,19 +115,62 @@ html, body {
         outline: none; }
       html #container_dynamic .userForm #register_btn, body #container_dynamic .userForm #register_btn {
         color: rgba(140, 137, 121, 0.8); }
-    html #container_dynamic #login_info, body #container_dynamic #login_info {
-      width: 0%;
+    html #container_dynamic #expand_container, body #container_dynamic #expand_container {
+      position: fixed;
+      left: 0;
+      top: .5%;
+      padding: 1% 4% 1%;
+      background-color: rgba(140, 137, 121, 0.5);
+      font-size: 3vh;
+      border: 3px #8c8979 solid;
+      border-left: 0; }
+    html #container_dynamic #login_info_container, body #container_dynamic #login_info_container {
+      width: 0;
       height: 100%;
-      background-color: #8c8979;
-      position: absolute;
-      color: #f2f2f2;
-      text-align: right;
-      z-index: 2;
-      color: transparent; }
+      margin: 0;
+      background-color: rgba(140, 137, 121, 0.6);
+      position: fixed;
+      text-align: left;
+      display: none;
+      opacity: 0; }
+      html #container_dynamic #login_info_container #close_container, body #container_dynamic #login_info_container #close_container {
+        position: fixed;
+        margin: 0;
+        left: 20%;
+        top: 45%;
+        padding: 4%;
+        z-index: 5;
+        display: block;
+        border: 3px solid #8c8979;
+        background-color: rgba(140, 137, 121, 0.5);
+        border-left: 0;
+        font-size: 5vh;
+        opacity: 0; }
+        html #container_dynamic #login_info_container #close_container:hover, body #container_dynamic #login_info_container #close_container:hover {
+          border: 3px solid rgba(140, 137, 121, 0.7);
+          background-color: rgba(242, 242, 242, 0.5);
+          color: rgba(64, 64, 64, 0.9);
+          border-left: 0; }
+      html #container_dynamic #login_info_container #login_info, body #container_dynamic #login_info_container #login_info {
+        width: 16%;
+        height: 100%;
+        padding: 2%;
+        background-color: #8c8979;
+        position: absolute;
+        color: #f2f2f2;
+        z-index: 2;
+        color: rgba(0, 0, 0, 0.5);
+        opacity: 0; }
+        html #container_dynamic #login_info_container #login_info ul, body #container_dynamic #login_info_container #login_info ul {
+          list-style: none;
+          text-align: center;
+          font-size: 2.5vh;
+          padding: 0;
+          margin: 0; }
     html #container_dynamic .runningTimeTbl, body #container_dynamic .runningTimeTbl {
       background-color: rgba(242, 242, 242, 0.7);
       width: 90%;
-      margin: 5% auto;
+      margin: 3% auto;
       font-weight: bold;
       padding: 5%;
       padding-bottom: 1%; }
