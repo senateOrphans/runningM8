@@ -27,14 +27,21 @@ end
   end
 
   post '/login' do
-    user = Account.authenticate(params[:user_name], params[:password])
-    if user #Remember, if the authenticate does not match the password, it will return nil.
-      session[:current_user] = user
-      redirect '/tracker/dashboard'
-    else
+    if does_user_exist(params[:user_name]) == false
       @message = 'Your password or username is incorrect.'
-      erb :login
+      return erb :login
+    else
+      user = Account.authenticate(params[:user_name], params[:password])
+      if user #Remember, if the authenticate does not match the password, it will return nil.
+        session[:current_user] = user
+        redirect '/tracker/dashboard'
+      else
+        @message = 'Your password or username is incorrect.'
+        erb :login
+      end
     end
+
+
   end
 
   get '/logout' do

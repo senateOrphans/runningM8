@@ -2,7 +2,7 @@
 
 Training hasn't started yet!
 
-Your training starts in <%= @days_until_formatted %> days!
+Your training starts in <%= @days_until_formatted %> days! You are on the <%= @current_skill_level %> training plan.
 <!-- Note: changing training week number to a diff variable, naming it one -->
 <% @countdown_page_training_week_number_one = 1 %>
 <% inc = 2 %>
@@ -20,13 +20,13 @@ Your training starts in <%= @days_until_formatted %> days!
 
 
   <ul class="daysListingVals">
-    <li class="listingVals"><%= @novice[inc][0] %></li>
-    <li class="listingVals"><%= @novice[inc][1] %></li>
-    <li class="listingVals"><%= @novice[inc][2] %></li>
-    <li class="listingVals"><%= @novice[inc][3] %></li>
-    <li class="listingVals"><%= @novice[inc][4] %></li>
-    <li class="listingVals"><%= @novice[inc][5] %></li>
-    <li class="listingVals"><%= @novice[inc][6] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][0] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][1] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][2] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][3] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][4] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][5] %></li>
+    <li class="listingVals"><%= @set_skill_level[inc][6] %></li>
   </ul>
   <% end %>
 

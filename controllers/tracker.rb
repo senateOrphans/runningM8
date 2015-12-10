@@ -148,6 +148,13 @@ else
 end
 end
 
+def determine_skill_level
+if @current_skill_level == 'novice'
+  @set_skill_level = @novice
+else
+  @set_skill_level = @intermediate
+end
+end
 
 
 # ALL GET ROUTES  ARE BELOW
@@ -156,12 +163,13 @@ end
     provide_user_id
     provide_user_name
     create_novice
+    create_intermediate
     provide_marathon_info
     set_date
     format_date(@current_unformatted_marathon_date)
     set_training_start
     set_days_until
-    set_days_until
+  determine_skill_level
     erb :countdown
   end
 
@@ -170,6 +178,7 @@ end
     provide_user_id
     provide_user_name
     create_novice
+    create_intermediate
     provide_marathon_info
     set_date
     format_date(@current_unformatted_marathon_date)
@@ -180,6 +189,7 @@ end
     tracker_total_distance
     has_training_started
     provide_already_logged_data
+    determine_skill_level
     erb :dashboard
 
   end
@@ -242,6 +252,7 @@ end
     provide_user_id
     provide_user_name
     create_novice
+    create_intermediate
     provide_marathon_info
     set_date
     format_date(@current_unformatted_marathon_date)
