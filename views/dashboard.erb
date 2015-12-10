@@ -10,73 +10,78 @@
   </ul>
 </div>
 
-<p><h2>Data if they have started</h2>
-<p>Welcome back, <%= @user_name %>!
+<!-- <p><h2>Data if they have started</h2>
+<p>Welcome back, <%= @user_name %>!</p>
 
 <p>You are on <b>week number <%= @training_week_number %></b> of your training!
 
-  <p>You have ran <%= @total_distance_run %> miles already!
+  <p>You have ran <%= @total_distance_run %> miles already!</p> -->
 
 
 <!-- <table style="width:100%"> -->
 <form action="/tracker/dashboard" method="post">
   <input type="hidden" name="settings_id" value="settings_id">
 <!-- NEED TO CREATE @VARIABLE for settings_id -->
-  <p>
-
-<input type ="hidden" name="week" value=<%="\"#{@training_week_number}\""%>>
+  <input type ="hidden" name="week" value=<%="\"#{@training_week_number}\""%>>
 
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
-<h2>Today is <%= @current_date.strftime("%m/%d/%y") %></h2>
+  <!-- <h2>Today is <%= @current_date.strftime("%m/%d/%y") %></h2> -->
 
-  <p><%= @duplicate_message %>
-
-  <div class="runningTimeTbl">
+  <table class="runningTimeTbl">
 
 
-    <ul class="daysListing">
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%m/%d")  %></li>
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%m/%d")  %></li>
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%m/%d")  %></li>
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%m/%d")  %></li>
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%m/%d")  %></li>
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%m/%d")  %></li>
-      <li class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></li>
-    </ul>
-    <ul class="daysListingInput">
-      <li class="distNums"><input type="number" name="distance_mon"></li>
-      <li class="distNums"><input type="number" name="distance_tues"></li>
-      <li class="distNums"><input type="number" name="distance_wed"></li>
-      <li class="distNums"><input type="number" name="distance_thurs"></li>
-      <li class="distNums"><input type="number" name="distance_fri"></li>
-      <li class="distNums"><input type="number" name="distance_sat"></li>
-      <li class="distNums"><input type="number" name="distance_sun"></li>
-    </ul>
-    <ul class="YOLO">
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></li>
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_tues"].to_i%></li>
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_wed"].to_i%></li>
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_thurs"].to_i%></li>
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_fri"].to_i%></li>
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_sat"].to_i%></li>
-      <li class="YOLO"><%=@select_tracker_for_current_week_json[0]["distance_sun"].to_i%></li>
-    </ul>
-    <ul class="daysListingVals">
+    <tr class="daysListing">
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 1).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 2).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 3).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 4).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 5).strftime("%m/%d")  %></td>
+      <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></td>
+    </tr>
+    <tr class="daysListingInput">
+      <td class="distNums"><input type="number" name="distance_mon" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_tues" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_wed" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_thurs" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_fri" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_sat" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_sun" min="0" max="150"></li>
+    </tr>
+    <tr class="userInputVals">
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_tues"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_wed"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_thurs"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_fri"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_sat"].to_i%></li>
+      <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_sun"].to_i%></li>
+    </tr>
+    <tr class="daysListingVals">
       <!-- saving this for later because it is cool :)
     <% @novice[@training_week_number].each do |num| %>
       <input type="text" name="name" value="<%= num %>">
     <% end %> -->
-      <li class="listingVals"><%= @novice[@training_week_number][0] %></li>
-      <li class="listingVals"><%= @novice[@training_week_number][1] %></li>
-      <li class="listingVals"><%= @novice[@training_week_number][2] %></li>
-      <li class="listingVals"><%= @novice[@training_week_number][3] %></li>
-      <li class="listingVals"><%= @novice[@training_week_number][4] %></li>
-      <li class="listingVals"><%= @novice[@training_week_number][5] %></li>
-      <li class="listingVals"><%= @novice[@training_week_number][6] %></li>
-    </ul>
-    <button type="submit" value="Submit" class="submit_btn"><i class="fa fa-sign-in"></i></button>
+      <td class="listingVals"><%= @novice[@training_week_number][0] %></li>
+      <td class="listingVals"><%= @novice[@training_week_number][1] %></li>
+      <td class="listingVals"><%= @novice[@training_week_number][2] %></li>
+      <td class="listingVals"><%= @novice[@training_week_number][3] %></li>
+      <td class="listingVals"><%= @novice[@training_week_number][4] %></li>
+      <td class="listingVals"><%= @novice[@training_week_number][5] %></li>
+      <td class="listingVals"><%= @novice[@training_week_number][6] %></li>
+    </tr>
+    <tr id="submit_row">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td id="tbl_submit_btn">
+        <button type="submit" value="Submit" class="submit_btn"><i class="fa fa-sign-in"></i></button>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
 
-  </div>
-
+  </table>
 </form>
