@@ -1,7 +1,65 @@
+
+
 Training hasn't started yet!
 
+Your training starts in <%= @days_until_formatted %> days!
+<!-- Note: changing training week number to a diff variable, naming it one -->
+<% @countdown_page_training_week_number_one = 1 %>
+<% inc = 2 %>
+<div class="runningTimeTbl">
 
-<table>
+  <% for inc in 1..18 %>
+  <ul class="daysListing">
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 1).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 2).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 3).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 4).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 5).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 6).strftime("%m/%d")  %></li>
+
+
+  <ul class="daysListingVals">
+    <li class="listingVals"><%= @novice[inc][0] %></li>
+    <li class="listingVals"><%= @novice[inc][1] %></li>
+    <li class="listingVals"><%= @novice[inc][2] %></li>
+    <li class="listingVals"><%= @novice[inc][3] %></li>
+    <li class="listingVals"><%= @novice[inc][4] %></li>
+    <li class="listingVals"><%= @novice[inc][5] %></li>
+    <li class="listingVals"><%= @novice[inc][6] %></li>
+  </ul>
+  <% end %>
+
+
+<!--
+
+  <ul class="daysListing">
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 1).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 2).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 3).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 4).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 5).strftime("%m/%d")  %></li>
+    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 6).strftime("%m/%d")  %></li>
+  <ul class="daysListingVals">
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][0] %></li>
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][1] %></li>
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][2] %></li>
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][3] %></li>
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][4] %></li>
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][5] %></li>
+    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][6] %></li>
+  </ul> -->
+
+<!-- SECOND ROW -->
+
+
+</div>
+
+</form>
+
+
+<!-- <table>
 <tr><td>WEEK</td>	<td>MON</td>	<td>TUE</td>	<td>WED</td>	<td>THU</td>	<td>FRI</td>	<td>SAT</td>	<td>SUN</td></tr>
 
 <tr><td>1	<td>Rest</td>	<td>3 m run</td>	<td>3 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>6 m run</td>	<td>Cross</td></tr>
@@ -40,4 +98,4 @@ Training hasn't started yet!
 
 <tr><td>18	<td>Rest</td>	<td>3 m run</td>	<td>4 m run</td>	<td>2 m run</td>	<td>Rest</td>	<td>Rest</td>	<td>Marathon</td></tr>
 
-</table>
+</table> -->

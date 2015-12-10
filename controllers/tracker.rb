@@ -25,6 +25,28 @@ def create_novice
     @novice[18] = ['Rest', '3 miles', '4 miles', '2 miles', 'Rest', '26 miles', 'Cross']
 end
 
+def create_intermediate
+  @intermediate = Hash.new
+  @intermediate[1] = ['Cross', '3 miles', '5 miles', '3 miles', 'Rest', '5 miles', '8 miles']
+  @intermediate[2] = ['Cross', '3 miles', '5 miles', '3 miles', 'Rest', '5 miles', '9 miles']
+  @intermediate[3] = ['Cross', '3 miles', '5 miles', '3 miles', 'Rest', '5 miles', '6 miles']
+  @intermediate[4] = ['Cross', '3 miles', '6 miles', '3 miles', 'Rest', '6 miles', '11 miles']
+  @intermediate[5] = ['Cross', '3 miles', '6 miles', '3 miles', 'Rest', '6 miles', '12 miles']
+  @intermediate[6] = ['Cross', '3 miles', '5 miles', '3 miles', 'Rest', '6 miles', '9 miles']
+  @intermediate[7] = ['Cross', '4 miles', '7 miles', '4 miles', 'Rest', '7 miles', '14 miles']
+  @intermediate[8] = ['Cross', '4 miles', '7 miles', '4 miles', 'Rest', '7 miles', '15 miles']
+  @intermediate[9] = ['Cross', '4 miles', '5 miles', '4 miles', 'Rest', 'Rest', '13 miles']
+  @intermediate[10] = ['Cross', '4 miles', '8 miles', '4 miles', 'Rest', '8 miles', '17 miles']
+  @intermediate[11] = ['Cross', '5 miles', '8 miles', '5 miles', 'Rest', '8 miles', '18 miles']
+  @intermediate[12] = ['Cross', '5 miles', '5 miles', '5 miles', 'Rest', '8 miles', '13 miles']
+  @intermediate[13] = ['Cross', '5 miles', '8 miles', '5 miles', 'Rest', '5 miles', '20 miles']
+  @intermediate[14] = ['Cross', '5 miles', '5 miles', '5 miles', 'Rest', '8 miles', '12 miles']
+  @intermediate[15] = ['Cross', '5 miles', '8 miles', '5 miles', 'Rest', '5 miles', '20 miles']
+  @intermediate[16] = ['Cross', '5 miles', '6 miles', '5 miles', 'Rest', '4 miles', '12 miles']
+  @intermediate[17] = ['Cross', '4 miles', '5 miles', '4 miles', 'Rest', '3 miles', '8 miles']
+  @intermediate[18] = ['Cross', '3 miles', '4 miles', 'Rest', 'Rest', '2 miles',	'26 miles']
+end
+
 # This method formats dates, so that they can be used with Date functions (adding and subtracting dates).
 def format_date(date)
    @fixed_date = date.gsub('-',',')
@@ -40,6 +62,8 @@ def provide_marathon_info
 
   @current_marathon_name = Setting.find_by(account_id: @user_id).marathon_name
   @current_unformatted_marathon_date = Setting.find_by(account_id: @user_id).marathon_date
+  @current_skill_level = Setting.find_by(account_id: @user_id).skill_level
+
 end
 end
 
@@ -87,7 +111,7 @@ elsif (-7 < argument && argument < 0) || argument == 0
        @training_week_number = @inc
     end
     end
-    @training_week_number_history = @training_week_number - @weeks_ago
+    # @training_week_number_history = @training_week_number - @weeks_ago
 end
 
 # This method says how far the user has run in TOTAL, across all weeks/all logged data.
@@ -121,12 +145,22 @@ def provide_already_logged_data
 else
   @select_tracker_for_current_week_json = [{"distance_mon"=>"", "distance_tues"=>"", "distance_wed"=>"", "distance_thurs"=>"", "distance_fri"=>"", "distance_sat"=>"", "distance_sun"=>""}]
 end
-
 end
+
+
 
 # ALL GET ROUTES  ARE BELOW
 
   get '/countdown' do
+    provide_user_id
+    provide_user_name
+    create_novice
+    provide_marathon_info
+    set_date
+    format_date(@current_unformatted_marathon_date)
+    set_training_start
+    set_days_until
+    set_days_until
     erb :countdown
   end
 
