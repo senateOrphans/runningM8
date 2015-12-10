@@ -16,7 +16,31 @@ $(document).ready(function(){
     console.log('yay')
   });
   //~~~~~~~~~~~~~
-  //end infex login btns
+  //end index login btns
+
+  //~~~~~~~~~~~~~
+  //password match
+  function checkPasswordMatch() {
+    console.log('triggered pw match');
+    var password = $("#password").val();
+    var confirmPassword = $("#password_confirm").val();
+
+    if (password != confirmPassword) {
+      $("#pwdMessage").html("Passwords do not match!");
+      $("#reg_sbm_btn").css(
+        'display', 'none'
+      )
+    } else {
+      $("#pwdMessage").html("Passwords match.");
+      $("#reg_sbm_btn").css(
+        'display', 'block'
+      )
+    }
+  }
+  $("#password_confirm").on('keyup', checkPasswordMatch);
+  //end of password match
+  //~~~~~~~~~~~~~
+
   $( ".tglr" ).click(function(e) {
     if( 0 == tracker % 2){
       $( "#header_logo" ).fadeTo("slow", 1);
