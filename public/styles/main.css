@@ -19,7 +19,8 @@ html, body {
     box-sizing: border-box;
     -webkit-box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75); }
+    box-shadow: 0px 17px 6px -5px rgba(0, 0, 0, 0.75);
+    z-index: 0; }
     html header #header_title, body header #header_title {
       display: block;
       width: 100%;
@@ -40,15 +41,16 @@ html, body {
     height: 90%;
     background: rgba(242, 242, 242, 0.9);
     text-align: center;
-    overflow: auto;
-    background-image: url(https://tau0.files.wordpress.com/2012/11/high_road_bw.jpg);
-    background-size: cover;
-    background-repeat: no-repeat; }
+    overflow: auto; }
     html #container_dynamic #spacer, body #container_dynamic #spacer {
       width: 100%;
       height: 5%; }
     html #container_dynamic .submit_btn, body #container_dynamic .submit_btn {
-      transition: all .5s;
+      -webkit-transition: all 500ms ease;
+      -moz-transition: all 500ms ease;
+      -ms-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease;
       display: block;
       margin: 0 auto;
       padding-right: 2%;
@@ -84,6 +86,13 @@ html, body {
       display: inline-flex;
       margin-bottom: 1%;
       color: #404040; }
+    html #container_dynamic #cd_h2, body #container_dynamic #cd_h2 {
+      font-size: 10vh;
+      color: #404040;
+      margin-top: 5%; }
+    html #container_dynamic #set_up_h2, body #container_dynamic #set_up_h2 {
+      margin-top: 5%;
+      font-size: 15vh; }
     html #container_dynamic #index_register_section, body #container_dynamic #index_register_section {
       display: none; }
     html #container_dynamic .userForm, body #container_dynamic .userForm {
@@ -115,15 +124,45 @@ html, body {
         outline: none; }
       html #container_dynamic .userForm #register_btn, body #container_dynamic .userForm #register_btn {
         color: rgba(140, 137, 121, 0.8); }
+    html #container_dynamic #set_up_form, body #container_dynamic #set_up_form {
+      width: 70%; }
+      html #container_dynamic #set_up_form input, body #container_dynamic #set_up_form input {
+        color: rgba(140, 137, 121, 0.8); }
+      html #container_dynamic #set_up_form input:focus, body #container_dynamic #set_up_form input:focus {
+        color: rgba(64, 64, 64, 0.7); }
+      html #container_dynamic #set_up_form .form_radio_btns, body #container_dynamic #set_up_form .form_radio_btns {
+        width: auto;
+        padding: 3%;
+        margin-top: 3%;
+        display: inline-block; }
+      html #container_dynamic #set_up_form label, body #container_dynamic #set_up_form label {
+        color: rgba(64, 64, 64, 0.9);
+        font-size: 2vh;
+        padding: 4%;
+        font-weight: bolder;
+        -webkit-transition: all 250ms ease;
+        -moz-transition: all 250ms ease;
+        -ms-transition: all 250ms ease;
+        -o-transition: all 250ms ease;
+        transition: all 250ms ease; }
+        html #container_dynamic #set_up_form label:hover, body #container_dynamic #set_up_form label:hover {
+          color: rgba(224, 56, 56, 0.9); }
     html #container_dynamic #expand_container, body #container_dynamic #expand_container {
       position: fixed;
       left: 0;
       top: .5%;
       padding: 1% 4% 1%;
-      background-color: rgba(140, 137, 121, 0.5);
+      background-color: rgba(140, 137, 121, 0.6);
       font-size: 3vh;
       border: 3px #8c8979 solid;
-      border-left: 0; }
+      border-left: 0;
+      -webkit-transition: all 500ms ease;
+      -moz-transition: all 500ms ease;
+      -ms-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease; }
+      html #container_dynamic #expand_container:hover, body #container_dynamic #expand_container:hover {
+        background-color: rgba(140, 137, 121, 0.6); }
     html #container_dynamic #login_info_container, body #container_dynamic #login_info_container {
       width: 0;
       height: 100%;
@@ -142,12 +181,17 @@ html, body {
         z-index: 5;
         display: block;
         border: 3px solid #8c8979;
-        background-color: rgba(140, 137, 121, 0.5);
+        background-color: rgba(242, 242, 242, 0.5);
         border-left: 0;
         font-size: 5vh;
-        opacity: 0; }
+        opacity: 0;
+        -webkit-transition: all 50ms ease;
+        -moz-transition: all 50ms ease;
+        -ms-transition: all 50ms ease;
+        -o-transition: all 50ms ease;
+        transition: all 50ms ease; }
         html #container_dynamic #login_info_container #close_container:hover, body #container_dynamic #login_info_container #close_container:hover {
-          border: 3px solid rgba(140, 137, 121, 0.7);
+          border: 3px solid rgba(64, 64, 64, 0.7);
           background-color: rgba(242, 242, 242, 0.5);
           color: rgba(64, 64, 64, 0.9);
           border-left: 0; }
@@ -155,11 +199,12 @@ html, body {
         width: 16%;
         height: 100%;
         padding: 2%;
-        background-color: #8c8979;
+        background-color: #f2f2f2;
+        border-right: 3px solid #8c8979;
         position: absolute;
         color: #f2f2f2;
         z-index: 2;
-        color: rgba(0, 0, 0, 0.5);
+        color: rgba(64, 64, 64, 0.5);
         opacity: 0; }
         html #container_dynamic #login_info_container #login_info ul, body #container_dynamic #login_info_container #login_info ul {
           list-style: none;
@@ -167,13 +212,34 @@ html, body {
           font-size: 2.5vh;
           padding: 0;
           margin: 0; }
+          html #container_dynamic #login_info_container #login_info ul #user_name_info, body #container_dynamic #login_info_container #login_info ul #user_name_info {
+            background-color: rgba(140, 137, 121, 0.4);
+            padding: 2%;
+            border: rgba(64, 64, 64, 0.7) 3px solid;
+            -webkit-transition: all 250ms ease;
+            -moz-transition: all 250ms ease;
+            -ms-transition: all 250ms ease;
+            -o-transition: all 250ms ease;
+            transition: all 250ms ease; }
+            html #container_dynamic #login_info_container #login_info ul #user_name_info:hover, body #container_dynamic #login_info_container #login_info ul #user_name_info:hover {
+              background-color: rgba(140, 137, 121, 0.1); }
+          html #container_dynamic #login_info_container #login_info ul li, body #container_dynamic #login_info_container #login_info ul li {
+            margin-bottom: 10%;
+            padding: 2%;
+            color: #404040; }
+          html #container_dynamic #login_info_container #login_info ul .liLabel, body #container_dynamic #login_info_container #login_info ul .liLabel {
+            margin-bottom: 0;
+            color: #8c8979; }
+    html #container_dynamic #dashboard_tbl, body #container_dynamic #dashboard_tbl {
+      margin-top: 2.5%; }
     html #container_dynamic .runningTimeTbl, body #container_dynamic .runningTimeTbl {
       background-color: rgba(242, 242, 242, 0.7);
       width: 90%;
-      margin: 3% auto;
+      margin: 0% auto;
       font-weight: bold;
       padding: 5%;
-      padding-bottom: 1%; }
+      padding-bottom: 1%;
+      z-index: 0; }
       html #container_dynamic .runningTimeTbl .daysListing, body #container_dynamic .runningTimeTbl .daysListing {
         margin: 0;
         padding: 0;
@@ -231,7 +297,12 @@ html, body {
         padding-top: 2.5%; }
         html #container_dynamic .runningTimeTbl #submit_row #tbl_submit_btn button, body #container_dynamic .runningTimeTbl #submit_row #tbl_submit_btn button {
           background-color: rgba(242, 242, 242, 0.5);
-          border: rgba(64, 64, 64, 0.5) solid 2px; }
+          border: rgba(64, 64, 64, 0.5) solid 2px;
+          -webkit-transition: all 500ms ease;
+          -moz-transition: all 500ms ease;
+          -ms-transition: all 500ms ease;
+          -o-transition: all 500ms ease;
+          transition: all 500ms ease; }
           html #container_dynamic .runningTimeTbl #submit_row #tbl_submit_btn button:hover, body #container_dynamic .runningTimeTbl #submit_row #tbl_submit_btn button:hover {
             border: rgba(64, 64, 64, 0.9) solid 2px; }
       html #container_dynamic .runningTimeTbl .userInputVals, body #container_dynamic .runningTimeTbl .userInputVals {
@@ -243,6 +314,15 @@ html, body {
           color: rgba(224, 56, 56, 0.9);
           padding-top: 5%;
           font-size: 3vh; }
+  html .cd_lt, body .cd_lt {
+    padding: 0 0 5% 0;
+    font-size: 2.75vh;
+    color: #404040; }
+  html h3, body h3 {
+    font-size: 3vh;
+    color: rgba(64, 64, 64, 0.9); }
+  html .bgChange:nth-child(even), body .bgChange:nth-child(even) {
+    background-color: red; }
   html footer, body footer {
     position: fixed;
     bottom: 0;

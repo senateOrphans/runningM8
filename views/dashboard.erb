@@ -1,14 +1,29 @@
+<script type="text/javascript">
+  bgImg = {
+    'background-image': 'url(https://tau0.files.wordpress.com/2012/11/high_road_bw.jpg)',
+    'background-size': 'cover',
+    'background-repeat': 'no-repeat'
+  }
+  $('#container_dynamic').css(bgImg);
+</script>
+
 <div id="expand_container"><i class="fa fa-info"></i></div>
 <div id="login_info_container">
   <span id="close_container">X</span>
   <div id="login_info">
     <ul>
-      <li><i class="fa fa-user"></i><%= @user_name %></li>
+      <li id="user_name_info"><i class="fa fa-user"></i> <%= @user_name %></li>
+      <li class="liLabel">Name:</li>
       <li><%= @current_marathon_name %></li>
+      <li class="liLabel">Today is:</li>
       <li><%= @current_date.strftime("%m/%d/%y") %></li>
+      <li class="liLabel">Training started on:</li>
       <li><%= @trainingStart.strftime("%m/%d/%y")%></li>
+      <li class="liLabel">Week number:</li>
       <li><%= @training_week_number %></li>
+      <li class="liLabel">Distance logged:</li>
       <li><%= @total_distance_run %></li>
+      <li id="signOut"><a href="/logout">Sign out</a></li>
     </ul>
   </div>
 </div>
@@ -31,7 +46,7 @@
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
   <!-- <h2>Today is <%= @current_date.strftime("%m/%d/%y") %></h2> -->
 
-  <table class="runningTimeTbl">
+  <table id="dashboard_tbl"class="runningTimeTbl">
 
 
     <tr class="daysListing">
@@ -44,13 +59,13 @@
       <td class="daysListText"><%= (@trainingStart + (@training_week_number - 1) * 7 + 6).strftime("%m/%d")  %></td>
     </tr>
     <tr class="daysListingInput">
-      <td class="distNums"><input type="number" name="distance_mon" min="0" max="150"></li>
-      <td class="distNums"><input type="number" name="distance_tues" min="0" max="150"></li>
-      <td class="distNums"><input type="number" name="distance_wed" min="0" max="150"></li>
-      <td class="distNums"><input type="number" name="distance_thurs" min="0" max="150"></li>
-      <td class="distNums"><input type="number" name="distance_fri" min="0" max="150"></li>
-      <td class="distNums"><input type="number" name="distance_sat" min="0" max="150"></li>
-      <td class="distNums"><input type="number" name="distance_sun" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_mon" placeholder="#" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_tues" placeholder="#" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_wed" placeholder="#" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_thurs" placeholder="#" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_fri" placeholder="#" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_sat" placeholder="#" min="0" max="150"></li>
+      <td class="distNums"><input type="number" name="distance_sun" placeholder="#" min="0" max="150"></li>
     </tr>
     <tr class="userInputVals">
       <td class="userVals"><%=@select_tracker_for_current_week_json[0]["distance_mon"].to_i%></li>

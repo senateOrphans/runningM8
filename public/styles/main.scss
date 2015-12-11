@@ -1,3 +1,9 @@
+@mixin transition($time){ -webkit-transition: $time;
+-moz-transition: $time;
+-ms-transition: $time;
+-o-transition: $time;
+transition: $time;
+}
 @import 'variables.scss';
 
 html,body{
@@ -22,6 +28,7 @@ html,body{
     -webkit-box-shadow: 0px 17px 6px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 17px 6px -5px rgba(0,0,0,0.75);
     box-shadow: 0px 17px 6px -5px rgba(0,0,0,0.75);
+    z-index: 0;
 
     #header_title{
       display: block;
@@ -51,9 +58,9 @@ html,body{
     background: rgba(242, 242, 242, .9);
     text-align: center;
     overflow: auto;
-    background-image: url(https://tau0.files.wordpress.com/2012/11/high_road_bw.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background-image: url(https://tau0.files.wordpress.com/2012/11/high_road_bw.jpg);
+    // background-size: cover;
+    // background-repeat: no-repeat;
 
 
     #spacer{
@@ -61,7 +68,7 @@ html,body{
       height: 5%;
     }
     .submit_btn{
-      transition: all .5s;
+      @include transition(all 500ms ease);
       display: block;
       margin: 0 auto;
       padding-right: 2%;
@@ -105,6 +112,15 @@ html,body{
       margin-bottom: 1%;
       color: #404040;
     }
+    #cd_h2{
+      font-size: 10vh;
+      color: #404040;
+      margin-top:5%;
+    }
+    #set_up_h2{
+      margin-top: 5%;
+      font-size: 15vh;
+    }
     #index_register_section{
       display: none;
     }
@@ -144,15 +160,49 @@ html,body{
         color: rgba(#8c8979, .8);
       }
     }
+    #set_up_form{
+      width: 70%;
+
+      input{
+          color: rgba(#8c8979, .8);
+      }
+      input:focus{
+        color: rgba(#404040, .7);
+      }
+      .form_radio_btns{
+        width: auto;
+        padding: 3%;
+        margin-top: 3%;
+        display: inline-block;
+      }
+      label{
+        color: rgba(#404040,.9);
+        font-size: 2vh;
+        padding: 4%;
+        font-weight: bolder;
+        @include transition(all 250ms ease);
+        &:hover{
+          color: rgba(#e03838, .9)
+        }
+      }
+    }
     #expand_container{
       position: fixed;
       left: 0;
       top: .5%;
       padding: 1% 4% 1%;
-      background-color: rgba(#8C8979, .5);
+      background-color: rgba(#8C8979, .6);
       font-size: 3vh;
       border: 3px rgba(#8c8979, 1) solid;
       border-left: 0;
+      @include transition(all 500ms ease);
+
+
+
+      &:hover{
+        background-color: rgba(#8C8979, .6);
+
+      }
     }
     #login_info_container{
       width: 0;
@@ -173,12 +223,14 @@ html,body{
         z-index: 5;
         display: block;
         border: 3px solid rgba(#8c8979, 1);
-        background-color: rgba(#8c8979, .5);
+        background-color: rgba(#f2f2f2, .5);
         border-left: 0;
         font-size: 5vh;
         opacity: 0;
+        @include transition(all 50ms ease);
+
         &:hover{
-          border: 3px solid rgba(#8c8979, .7);
+          border: 3px solid rgba(#404040, .7);
           background-color: rgba(#f2f2f2, .5);
           color: rgba(#404040, .9);
           border-left: 0;
@@ -188,11 +240,12 @@ html,body{
         width: 16%;
         height: 100%;
         padding: 2%;
-        background-color: rgba(#8c8979, 1);
+        background-color: rgba(#f2f2f2, 1);
+        border-right: 3px solid rgba(#8c8979, 1);
         position: absolute;
         color: #f2f2f2;
         z-index: 2;
-        color: rgba(#000, .5);
+        color: rgba(#404040, .5);
         opacity: 0;
 
         ul{
@@ -201,21 +254,42 @@ html,body{
           font-size: 2.5vh;
           padding: 0;
           margin: 0;
+
+          #user_name_info{
+            background-color:rgba(#8c8979, .4);
+            padding: 2%;
+            border: rgba(#404040, .7) 3px solid ;
+            @include transition(all 250ms ease);
+
+
+            &:hover{
+              background-color:rgba(#8c8979, .1);
+
+            }
+          }
+          li{
+            margin-bottom: 10%;
+            padding: 2%;
+            color: #404040;
+          }
+          .liLabel{
+            margin-bottom: 0;
+            color: #8c8979;
+          }
         }
       }
     }
-
+    #dashboard_tbl{
+      margin-top: 2.5%;
+    }
     .runningTimeTbl{
       background-color: rgba(#f2f2f2, .7);
       width: 90%;
-      margin: 3% auto;
+      margin: 0% auto;
       font-weight: bold;
       padding: 5%;
       padding-bottom: 1%;
-
-
-
-
+      z-index: 0;
 
       .daysListing{
         margin: 0;
@@ -299,6 +373,8 @@ html,body{
           button{
             background-color:  rgba(#f2f2f2, .5);
             border:  rgba(#404040, .5) solid 2px;
+            @include transition(all 500ms ease);
+
 
             &:hover{
               border:  rgba(#404040, .9) solid 2px;
@@ -323,6 +399,18 @@ html,body{
       }
     }
 
+  }
+  .cd_lt{
+    padding: 0 0 5% 0;
+    font-size: 2.75vh;
+    color: #404040;
+  }
+  h3{
+    font-size: 3vh;
+    color: rgba(#404040, .9);
+  }
+  .bgChange:nth-child(even){
+    background-color: red;
   }
   footer{
     position: fixed;
