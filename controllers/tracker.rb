@@ -75,7 +75,7 @@ end
 
 # This method provides the first day that the user's training program should begin.
 def set_training_start
-  @trainingStart = @current_formatted_marathon_date - 124
+  @trainingStart = @current_formatted_marathon_date - 125
   @week_one = @trainingStart.strftime("%W")
 end
 

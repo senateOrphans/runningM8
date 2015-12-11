@@ -25,5 +25,6 @@
 ## Fix Today?
  * Redirect issues on failed log-in/registration
  * Add ability to jump back 1 - 4 weeks
- * CHANGE 125 to 124 in def set_training_start
  * Change every other row color on countdown
+
+Look at project scope, initiation survey and scope survey?
