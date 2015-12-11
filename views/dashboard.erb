@@ -7,6 +7,18 @@
   $('#container_dynamic').css(bgImg);
 </script>
 
+<div id="for_aaron_to_place">
+  <select onChange="window.location.href=this.value">
+    <option value='/tracker/dashboard_week'>Navigator</option>
+    <option value='/tracker/dashboard_week'>Current Week</option>
+      <option value='/tracker/dashboard_week?weeksago=1'>1 Week Ago</option>
+      <option value='/tracker/dashboard_week?weeksago=2'>2 Weeks Ago</option>
+      <option value='/tracker/dashboard_week?weeksago=3'>3 Weeks Ago</option>
+      <option value='/tracker/dashboard_week?weeksago=4'>4 Weeks Ago</option>
+  </select>
+</div>
+
+
 <div id="expand_container"><i class="fa fa-info"></i></div>
 <div id="login_info_container">
   <span id="close_container">X</span>
