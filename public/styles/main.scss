@@ -1,11 +1,20 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Mixins
 @mixin transition($time){ -webkit-transition: $time;
 -moz-transition: $time;
 -ms-transition: $time;
 -o-transition: $time;
 transition: $time;
 }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//imports
 @import 'variables.scss';
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//styles </^~^/>
 html,body{
   background-color: white;
   width: 100%;
@@ -50,6 +59,8 @@ html,body{
       }
     }
   }
+  //end of header style
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #container_dynamic{
     margin: 0;
     padding: 0;
@@ -67,6 +78,8 @@ html,body{
       width: 100%;
       height: 5%;
     }
+    //spacer and container for content
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     .submit_btn{
       @include transition(all 500ms ease);
       display: block;
@@ -112,11 +125,14 @@ html,body{
       margin-bottom: 1%;
       color: #404040;
     }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //countdown h2
     #cd_h2{
       font-size: 10vh;
       color: #404040;
       margin-top:5%;
     }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #set_up_h2{
       margin-top: 5%;
       font-size: 15vh;
