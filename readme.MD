@@ -8,6 +8,8 @@
 
 
 ## User Stories
+Look at project scope, initiation survey and scope survey?
+
 
 ## Running M8 Technology
 
@@ -16,6 +18,7 @@
 ## Unsolved Problems / Future Features
  * The system allows registration of the same username with different capitalization.
  * Currently, the application only recognizes one setting for a marathon training plan. If the user wanted to use this application year after year, it does not yet have this functionality.
+ * When a user attempts to logs-in with the wrong information, the button breaks for them to change their minds and register a new account. Similarly, if they are registering and receive an error that the username already exists, the button breaks for them to go log-in instead.
  * Password recovery
  * Take data from Active.com to auto-fill marathon information
  * Provide charts using chart.js
@@ -23,8 +26,5 @@
  * Additional views (total, month-by-month, etc.)
 
 ## Fix Today?
- * Redirect issues on failed log-in/registration
  * Add ability to jump back 1 - 4 weeks
  * Change every other row color on countdown
-
-Look at project scope, initiation survey and scope survey?
