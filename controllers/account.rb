@@ -47,7 +47,7 @@ end
   get '/logout' do
     authorization_check
     session[:current_user] = nil
-    erb :logged_out
+    erb :index
   end
 
 end
