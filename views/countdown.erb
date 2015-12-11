@@ -1,101 +1,32 @@
 
+<h2 id="cd_h2">Training hasn't started yet!</h2>
 
-Training hasn't started yet!
-
-Your training starts in <%= @days_until_formatted %> days! You are on the <%= @current_skill_level %> training plan.
+<h3>Your training starts in <%= @days_until_formatted %> days! You are on the <%= @current_skill_level %> training plan.</h3>
 <!-- Note: changing training week number to a diff variable, naming it one -->
 <% @countdown_page_training_week_number_one = 1 %>
 <% inc = 2 %>
-<div class="runningTimeTbl">
+<table class="runningTimeTbl bgChange">
 
   <% for inc in 1..18 %>
-  <ul class="daysListing">
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 1).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 2).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 3).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 4).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 5).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 6).strftime("%m/%d")  %></li>
+  <tr class="daysListing">
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7).strftime("%m/%d")  %></td>
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 1).strftime("%m/%d")  %></td>
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 2).strftime("%m/%d")  %></td>
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 3).strftime("%m/%d")  %></td>
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 4).strftime("%m/%d")  %></td>
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 5).strftime("%m/%d")  %></td>
+    <td class="daysListText"><%= (@trainingStart + (inc - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (inc - 1) * 7 + 6).strftime("%m/%d")  %></td>
+  </tr>
 
+  <tr class="daysListingVals">
+    <td class="cd_lt"><%= @set_skill_level[inc][0] %></td>
+    <td class="cd_lt"><%= @set_skill_level[inc][1] %></td>
+    <td class="cd_lt"><%= @set_skill_level[inc][2] %></td>
+    <td class="cd_lt"><%= @set_skill_level[inc][3] %></td>
+    <td class="cd_lt"><%= @set_skill_level[inc][4] %></td>
+    <td class="cd_lt"><%= @set_skill_level[inc][5] %></td>
+    <td class="cd_lt"><%= @set_skill_level[inc][6] %></td>
+  </tr>
 
-  <ul class="daysListingVals">
-    <li class="listingVals"><%= @set_skill_level[inc][0] %></li>
-    <li class="listingVals"><%= @set_skill_level[inc][1] %></li>
-    <li class="listingVals"><%= @set_skill_level[inc][2] %></li>
-    <li class="listingVals"><%= @set_skill_level[inc][3] %></li>
-    <li class="listingVals"><%= @set_skill_level[inc][4] %></li>
-    <li class="listingVals"><%= @set_skill_level[inc][5] %></li>
-    <li class="listingVals"><%= @set_skill_level[inc][6] %></li>
-  </ul>
   <% end %>
-
-
-<!--
-
-  <ul class="daysListing">
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 1).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 1).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 2).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 2).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 3).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 3).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 4).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 4).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 5).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 5).strftime("%m/%d")  %></li>
-    <li class="daysListText"><%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 6).strftime("%A")  %>, <%= (@trainingStart + (@countdown_page_training_week_number_one - 1) * 7 + 6).strftime("%m/%d")  %></li>
-  <ul class="daysListingVals">
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][0] %></li>
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][1] %></li>
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][2] %></li>
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][3] %></li>
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][4] %></li>
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][5] %></li>
-    <li class="listingVals"><%= @novice[@countdown_page_training_week_number_one][6] %></li>
-  </ul> -->
-
-<!-- SECOND ROW -->
-
-
-</div>
-
-</form>
-
-
-<!-- <table>
-<tr><td>WEEK</td>	<td>MON</td>	<td>TUE</td>	<td>WED</td>	<td>THU</td>	<td>FRI</td>	<td>SAT</td>	<td>SUN</td></tr>
-
-<tr><td>1	<td>Rest</td>	<td>3 m run</td>	<td>3 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>6 m run</td>	<td>Cross</td></tr>
-
-<tr><td>2	<td>Rest</td>	<td>3 m run</td>	<td>3 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>7 m run</td>	<td>Cross</td></tr>
-
-<tr><td>3	<td>Rest</td>	<td>3 m run</td>	<td>4 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>5 m run</td>	<td>Cross</td></tr>
-
-<tr><td>4	<td>Rest</td>	<td>3 m run</td>	<td>4 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>9 m run</td>	<td>Cross</td></tr>
-
-<tr><td>5	<td>Rest</td>	<td>3 m run</td>	<td>5 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>10 m run</td>	<td>Cross</td></tr>
-
-<tr><td>6	<td>Rest</td>	<td>3 m run</td>	<td>5 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>7 m run</td>	<td>Cross</td></tr>
-
-<tr><td>7	<td>Rest</td>	<td>3 m run</td>	<td>6 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>12 m run</td>	<td>Cross</td></tr>
-
-<tr><td>8	<td>Rest</td>	<td>3 m run</td>	<td>6 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>Rest</td>	<td>Half Marathon</td></tr>
-
-<tr><td>9	<td>Rest</td>	<td>3 m run</td>	<td>7 m run</td>	<td>4 m run</td>	<td>Rest</td>	<td>10 m run</td>	<td>Cross</td></tr>
-
-<tr><td>10	<td>Rest</td>	<td>3 m run</td>	<td>7 m run</td>	<td>4 m run</td>	<td>Rest</td>	<td>15 m run</td>	<td>Cross</td></tr>
-
-<tr><td>11	<td>Rest</td>	<td>4 m run</td>	<td>8 m run</td>	<td>4 m run</td>	<td>Rest</td>	<td>16 m run</td>	<td>Cross</td></tr>
-
-<tr><td>12	<td>Rest</td>	<td>4 m run</td>	<td>8 m run</td>	<td>5 m run</td>	<td>Rest</td>	<td>12 m run</td>	<td>Cross</td></tr>
-
-<tr><td>13	<td>Rest</td>	<td>4 m run</td>	<td>9 m run</td>	<td>5 m run</td>	<td>Rest</td>	<td>18 m run</td>	<td>Cross</td></tr>
-
-<tr><td>14	<td>Rest</td>	<td>5 m run</td>	<td>9 m run</td>	<td>5 m run</td>	<td>Rest</td>	<td>14 m run</td>	<td>Cross</td></tr>
-
-<tr><td>15	<td>Rest</td>	<td>5 m run</td>	<td>10 m run</td>	<td>5 m run</td>	<td>Rest</td>	<td>20 m run</td>	<td>Cross</td></tr>
-
-<tr><td>16	<td>Rest</td>	<td>5 m run</td>	<td>8 m run</td>	<td>4 m run</td>	<td>Rest</td>	<td>12 m run</td>	<td>Cross</td></tr>
-
-<tr><td>17	<td>Rest</td>	<td>4 m run</td>	<td>6 m run</td>	<td>3 m run</td>	<td>Rest</td>	<td>8 m run</td>	<td>Cross</td></tr>
-
-<tr><td>18	<td>Rest</td>	<td>3 m run</td>	<td>4 m run</td>	<td>2 m run</td>	<td>Rest</td>	<td>Rest</td>	<td>Marathon</td></tr>
-
-</table> -->
+</table>
