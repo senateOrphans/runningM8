@@ -1,8 +1,8 @@
 # Welcome to Running M8!
 
-[Running M8](digital ocean URL here) is a new app to help you train for a marathon. Whether you are a first-timer or a seasoned runner, Running M8 will guide you every step until the finish line.
+[Running M8](http://104.236.214.136/) is a new app to help you train for a marathon. Whether you are a first-timer or a seasoned runner, Running M8 will guide you every step until the finish line.
 
-![Screenshot of Running M8 Dashboard](image URL here)
+![Screenshot of Running M8 Dashboard](http://i.imgur.com/rAYgymm.png)
 
 ## Approach Taken
 Together, we brainstormed an app that would interest the both of us. Once we settled on the idea of a marathon training app, we began to wireframe our product. We considered both the log-in functionality and the actual dashboard that each user would interact with.
