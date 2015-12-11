@@ -1,4 +1,23 @@
-
+<div id="expand_container"><i class="fa fa-info"></i></div>
+<div id="login_info_container">
+  <span id="close_container">X</span>
+  <div id="login_info">
+    <ul>
+      <li id="user_name_info"><i class="fa fa-user"></i> <%= @user_name %></li>
+      <li class="liLabel">Name:</li>
+      <li><%= @current_marathon_name %></li>
+      <li class="liLabel">Today is:</li>
+      <li><%= @current_date.strftime("%m/%d/%y") %></li>
+      <li class="liLabel">Training started on:</li>
+      <li><%= @trainingStart.strftime("%m/%d/%y")%></li>
+      <li class="liLabel">Week number:</li>
+      <li><%= @training_week_number %></li>
+      <li class="liLabel">Distance logged:</li>
+      <li><%= @total_distance_run %></li>
+      <li id="signOut"><a href="/logout">Sign out</a></li>
+    </ul>
+  </div>
+</div>
 <h2 id="cd_h2">Training hasn't started yet!</h2>
 
 <h3>Your training starts in <%= @days_until_formatted %> days! You are on the <%= @current_skill_level %> training plan.</h3>

@@ -18,6 +18,8 @@ $(document).ready(function(){
   //
   // }
   //
+
+  //GOT THIS FROM CODE PEN CHANGEDD SOMETHINGS BUT NOT EVERYTHING--- NOT TRYING TO PLAGURIZE
   var c = document.getElementById('canv'),
     $ = c.getContext('2d'),
     w = c.width = document.getElementById("header_logo").offsetWidth,
