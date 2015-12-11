@@ -42,7 +42,7 @@
     <option value='/tracker/dashboard_week?weeksago=4'>4 Weeks Ago</option>
   </select>
 </div>
-<h3 id="week_msg">This many weeks ago: <%= params[:weeksago] %></h3>
+<h3 id="week_msg">You are currently viewing <%= params[:weeksago] %> week(s) ago.</h3>
 
 <form action="/tracker/dashboard_week" method="post">
   <input type="hidden" name="settings_id" value="settings_id">
