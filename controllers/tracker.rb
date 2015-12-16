@@ -59,6 +59,18 @@ elsif (-7 < argument && argument < 0) || argument == 0
 
 give_training_week_number(@days_until_formatted)
 
+def tracker_total_distance
+provide_user_id
+@current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
+select_tracker = Tracker.find_by(settings_id: @current_marathon_settings_id)
+if select_tracker
+@total_distance = select_tracker.distance_mon.to_i + select_tracker.distance_tues.to_i + select_tracker.distance_wed.to_i + select_tracker.distance_thurs.to_i + select_tracker.distance_fri.to_i + select_tracker.distance_sat.to_i + select_tracker.distance_sun.to_i
+return @total_distance
+else
+  return @total_distance = 0
+end
+end
+tracker_total_distance
 
     @novice = Hash.new
     @novice[1] = ['Rest', '3 miles', '3 miles', '3 miles', 'Rest', '6 miles', 'Cross']
@@ -82,12 +94,15 @@ give_training_week_number(@days_until_formatted)
     erb :dashboard
 
   end
+  # ^ end of get dashboard?
 
 
 
   post '/dashboard' do
     provide_user_id
     @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
+
+
 
     @tracker = Tracker.new
 @tracker.settings_id = @current_marathon_settings_id
