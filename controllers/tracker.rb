@@ -64,6 +64,7 @@ provide_user_id
 @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
 @select_tracker = Tracker.where(settings_id: @current_marathon_settings_id)
 
+# Currenttly, calling select_tracker.to_json.... need to figure out how to add everything up
 
 # return @select_tracker
 # if select_tracker
