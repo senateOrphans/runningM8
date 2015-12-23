@@ -11,7 +11,9 @@
 
 <p>You are on <b>week number <%= @training_week_number %></b> of your training!
 
-<p>So far, you have run <%= @total_distance %> miles!
+<p>So far, you have run RB total_distance RB miles!
+
+  <p> <%= @select_tracker.to_json %>
 
 <!-- <table style="width:100%"> -->
 <form action="/tracker/dashboard" method="post">
@@ -24,6 +26,9 @@
   <!-- NEED TO FIGURE OUT HOW WEEK WILL BE FILLED IN -->
 <!-- Note: Week 18 will be the Saturday or Sunday that contains the marathon date and then back out from that. -->
 <h2>Today is <%= @current_date.strftime("%m/%d/%y") %></h1>
+
+  <p><%= @duplicate_message %>
+
 <table>
 
 

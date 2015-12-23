@@ -62,13 +62,16 @@ give_training_week_number(@days_until_formatted)
 def tracker_total_distance
 provide_user_id
 @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
-select_tracker = Tracker.find_by(settings_id: @current_marathon_settings_id)
-if select_tracker
-@total_distance = select_tracker.distance_mon.to_i + select_tracker.distance_tues.to_i + select_tracker.distance_wed.to_i + select_tracker.distance_thurs.to_i + select_tracker.distance_fri.to_i + select_tracker.distance_sat.to_i + select_tracker.distance_sun.to_i
-return @total_distance
-else
-  return @total_distance = 0
-end
+@select_tracker = Tracker.where(settings_id: @current_marathon_settings_id)
+
+
+# return @select_tracker
+# if select_tracker
+# @total_distance = select_tracker.distance_mon.to_i + select_tracker.distance_tues.to_i + select_tracker.distance_wed.to_i + select_tracker.distance_thurs.to_i + select_tracker.distance_fri.to_i + select_tracker.distance_sat.to_i + select_tracker.distance_sun.to_i
+# return @total_distance
+# else
+#   return @total_distance = 0
+# end
 end
 tracker_total_distance
 
@@ -102,8 +105,21 @@ tracker_total_distance
     provide_user_id
     @current_marathon_settings_id = Setting.find_by(account_id: @user_id).id
 
-
-
+# This checks if the week has already been submitted. If so, it will update it, rather than create a duplicate record.
+    @select_tracker = Tracker.find_by(settings_id: @current_marathon_settings_id, week: params[:week])
+    if @select_tracker
+      @tracker = @select_tracker
+      @tracker.distance_mon = params[:distance_mon]
+      @tracker.distance_tues = params[:distance_tues]
+      @tracker.distance_wed = params[:distance_wed]
+      @tracker.distance_thurs = params[:distance_thurs]
+      @tracker.distance_fri = params[:distance_fri]
+      @tracker.distance_sat = params[:distance_sat]
+      @tracker.distance_sun = params[:distance_sun]
+      @tracker.save
+      redirect '/tracker/dashboard'
+# If it arrives to the else statement, it means it is a new week and it will create a new line in the table
+else
     @tracker = Tracker.new
 @tracker.settings_id = @current_marathon_settings_id
 @tracker.week = params[:week]
@@ -119,6 +135,7 @@ tracker_total_distance
 
 
   redirect '/tracker/dashboard'
+end
   end
 
 
