@@ -1,4 +1,4 @@
-# @days_until_formatted = -40
+# @days_until_formatted = -8
 
 
   def give_training_week_number(argument)
@@ -15,7 +15,7 @@
       end
       end
 
-give_training_week_number(-100)
+give_training_week_number(@days_until_formatted)
 p @training_week_number
 
 

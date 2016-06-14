@@ -1,5 +1,7 @@
 class TrackerController < ApplicationController
 
+require 'date'
+
   get '/dashboard' do
 
     provide_user_id
@@ -7,7 +9,7 @@ class TrackerController < ApplicationController
 @current_marathon_name = Setting.find_by(account_id: @user_id).marathon_name
 @current_unformatted_marathon_date = Setting.find_by(account_id: @user_id).marathon_date
 
-@current_date = Time.now
+@current_date = Date.today
 @current_week = @current_date.strftime("%W")
 
 
@@ -31,6 +33,30 @@ else
 end
 end
 how_many_weeks_away
+
+
+
+@days_until = @trainingStart - @current_date
+@days_until_formatted = @days_until.to_i
+
+def give_training_week_number(argument)
+  @inc = 1
+  @training_week_number
+if argument > 0
+  @training_week_number = "Training hasn't started!"
+elsif (-7 < argument && argument < 0) || argument == 0
+  return @training_week_number = 1
+  elsif
+    until (-7 * @inc < argument && argument < -7 * (@inc-1)) || argument == -7 * (@inc-1) do
+      @inc += 1
+       @training_week_number = @inc
+    end
+
+    end
+    end
+
+give_training_week_number(@days_until_formatted)
+
 
     @novice = Hash.new
     @novice[1] = ['Rest', '3 miles', '3 miles', '3 miles', 'Rest', '6', 'Cross']

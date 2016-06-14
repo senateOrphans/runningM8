@@ -17,24 +17,9 @@
 <p> Training starts in <%= @trainingStart.strftime("%m/%d/%y")%> - <%= @current_date.strftime("%m/%d/%y") %>
 
 
-<p> how far away<%@days_until = @trainingStart - @current_date %>
-  <%= @days_until_formatted = @days_until.to_i %>
+<p>TRAINING WEEK NUMBER <%= @training_week_number %>
 
-  <%
-  def give_training_week_number
-    if 0 >= @days_until_formatted > -7
-      return @training_week_number = 1
 
-        for i in 2..18
-      elsif
-        -7(i-1) >= @days_until_formatted > -7(i)
-        return @training_week_number = i
-      end
-    end
-      end
-  %>
-<% give_training_week_number %>
-<%= @training_week_number %>
 
 <p>Training Start Week: Week Number <%= @week_one %>
 
