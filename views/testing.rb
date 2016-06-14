@@ -1,3 +1,26 @@
+@novice[1] = ['Rest', '3 miles', '3 miles', '3 miles', 'Rest', '6 miles', 'Cross']
+@novice[2] = ['Rest', '3 miles', '3 miles', '3 miles', 'Rest', '7 miles', 'Cross']
+@novice[3] = ['Rest', '3 miles', '4 miles', '3 miles', 'Rest', '5 miles', 'Cross']
+@novice[4] = ['Rest', '3 miles', '4 miles', '3 miles', 'Rest', '9 miles', 'Cross']
+@novice[5] = ['Rest', '3 miles', '5 miles', '3 miles', 'Rest', '10 miles', 'Cross']
+@novice[6] = ['Rest', '3 miles', '5 miles', '3 miles', 'Rest', '7 miles', 'Cross']
+@novice[7] = ['Rest', '3 miles', '6 miles', '3 miles', 'Rest', '12 miles', 'Cross']
+@novice[8] = ['Rest', '3 miles', '6 miles', '3 miles', 'Rest', '13 miles', 'Cross']
+@novice[9] = ['Rest', '3 miles', '7 miles', '4 miles', 'Rest', '10 miles', 'Cross']
+@novice[10] = ['Rest', '3 miles', '7 miles', '4 miles', 'Rest', '15 miles', 'Cross']
+@novice[11] = ['Rest', '4 miles', '8 miles', '4 miles', 'Rest', '16 miles', 'Cross']
+@novice[12] = ['Rest', '4 miles', '8 miles', '5 miles', 'Rest', '12 miles', 'Cross']
+@novice[13] = ['Rest', '4 miles', '9 miles', '5 miles', 'Rest', '18 miles', 'Cross']
+@novice[14] = ['Rest', '5 miles', '9 miles', '5 miles', 'Rest', '14 miles', 'Cross']
+@novice[15] = ['Rest', '5 miles', '10 miles', '5 miles', 'Rest', '20 miles', 'Cross']
+@novice[16] = ['Rest', '5 miles', '8 miles', '4 miles', 'Rest', '12 miles', 'Cross']
+@novice[17] = ['Rest', '4 miles', '6 miles', '3 miles', 'Rest', '8 miles', 'Cross']
+@novice[18] = ['Rest', '3 miles', '4 miles', '2 miles', 'Rest', '26 miles', 'Cross']
+
+
+
+
+
 # @days_until_formatted = -8
 
 
