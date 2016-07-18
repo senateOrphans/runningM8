@@ -89,7 +89,7 @@ give_training_week_number(@days_until_formatted)
 
     @tracker = Tracker.new
 @tracker.settings_id = @current_marathon_settings_id
-@tracker.week = '21'
+@tracker.week = params[:week]
 @tracker.distance_mon = params[:distance_mon]
 @tracker.distance_tues = params[:distance_tues]
 @tracker.distance_wed = params[:distance_wed]
